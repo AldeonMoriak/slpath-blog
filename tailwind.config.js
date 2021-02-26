@@ -1,11 +1,24 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    fontFamily: {
+      wyekan: ['WYekan'],
+    },
+    extend: {
+      color: {
+        cyan: colors.cyan,
+        teal: colors.teal,
+      },
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ['active'],
+      boxShadow: ['active'],
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
