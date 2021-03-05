@@ -1,6 +1,6 @@
 <template>
-  <div class="h-screen bg-gray-200 border border-t-4 border-teal-500">
-    <the-header />
+  <div class="h-full bg-gray-100">
+    <the-header class="border-t-4 border-blue-500 sticky top-0 m-0" />
     <div class="max-w-2xl lg:max-w-6xl mx-auto">
       <Nuxt />
     </div>

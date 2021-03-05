@@ -1,84 +1,95 @@
 <template>
   <div>
+    <div v-if="$fetchState.pending" class="container px-4 py-14 mx-auto">
+      <blog-post-skeleton
+        class="w-full mx-auto mb-8 text-left md:w-3/4 lg:w-1/2"
+      />
+    </div>
     <article
-      class="container px-4 py-24 mx-auto"
+      v-else
+      dir="rtl"
+      class="container px-4 py-14 mx-auto"
       itemid="#"
       itemscope
       itemtype="http://schema.org/BlogPosting"
     >
-      <div class="w-full mx-auto mb-12 text-left md:w-3/4 lg:w-1/2">
+      <div class="w-full mx-auto mb-8 md:w-3/4 lg:w-1/2 font-wyekan">
         <img
-          src="https://images.pexels.com/photos/932638/pexels-photo-932638.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-          class="object-cover w-full h-64 bg-center rounded-lg"
-          alt="Kutty"
+          :src="`${$axios.defaults.baseURL}/articles/image/${post.imageUrl}`"
+          class="object-cover w-full h-64 bg-center rounded-t-lg"
+          :alt="post.title"
         />
-        <p
-          class="mt-6 mb-2 text-xs font-semibold tracking-wider uppercase text-primary"
-        >
-          Development
-        </p>
-        <h1
-          class="mb-3 text-3xl font-bold leading-tight text-gray-900 md:text-4xl"
-          itemprop="headline"
-          title="Rise of Tailwind - A Utility First CSS Framework"
-        >
-          Rise of Tailwind - A Utility First CSS Framework
-        </h1>
-        <div class="flex mb-6 space-x-2">
-          <a class="text-gray-900 bg-gray-100 badge hover:bg-gray-200" href="#"
-            >CSS</a
+        <div class="bg-white rounded-b-xl py-0.5 pr-1">
+          <h1
+            class="mb-3 mt-1 text-xl font-bold leading-tight text-gray-900 md:text-2xl"
+            itemprop="headline"
+            :title="post.title"
           >
-          <a class="text-gray-900 bg-gray-100 badge hover:bg-gray-200" href="#"
-            >Tailwind</a
-          >
-          <a class="text-gray-900 bg-gray-100 badge hover:bg-gray-200" href="#"
-            >AlpineJS</a
-          >
+            {{ post.title }}
+          </h1>
+          <div class="flex mb-6 pr-2 space-x-2">
+            <a
+              v-for="tag in post.tags"
+              :key="tag.id"
+              class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-xs hover:bg-purple-300"
+              href="#"
+              >{{ tag.title }}</a
+            >
+          </div>
+          <div class="flex items-center text-gray-700">
+            <nuxt-link :to="`/blog/${post.admin.username}`">
+              <img
+                :src="`${$axios.defaults.baseURL}/image/${post.admin.profilePictureThumbnailUrl}`"
+                class="object-cover w-14 h-14 rounded-full shadow-sm text-sm mx-auto"
+                :alt="`عکس ${post.admin.name}`"
+              />
+            </nuxt-link>
+            <div class="flex justify-between w-full items-end">
+              <div class="mr-2">
+                <nuxt-link
+                  class="text-sm font-semibold text-gray-800"
+                  :to="`/blog/${post.admin.username}`"
+                >
+                  {{ post.admin.name }}
+                </nuxt-link>
+                <p class="text-sm text-gray-500 mt-1">
+                  {{ post.createdDateTime | moment('jYYYY/jMM/jDD') }}
+                </p>
+              </div>
+              <p
+                class="ml-2 mb-1 text-xs font-semibold tracking-wider text-gray-500"
+              >
+                {{ post.category.title }}
+              </p>
+            </div>
+          </div>
         </div>
-        <a class="flex items-center text-gray-700" href="#">
-          <div class="avatar">
-            <img
-              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-              class="object-cover w-14 h-14 rounded-full shadow-sm text-sm mx-auto"
-              alt="Photo of Praveen Juge"
-            />
-          </div>
-          <div class="ml-2">
-            <p class="text-sm font-semibold text-gray-800">Praveen Juge</p>
-            <p class="text-sm text-gray-500">Jan 02 2021</p>
-          </div>
-        </a>
       </div>
 
       <div class="w-full mx-auto max-w-prose md:w-3/4 lg:w-1/2">
-        <p>
-          What if there is an easy way to achieve responsive UI without using
-          any UI kit? Can we create new and fresh designs for every project with
-          a CSS framework? Enter Tailwind CSS, will this be the perfect CSS
-          framework, well let’s find out.
-        </p>
-        <p>
-          Tailwind is a utility-first CSS framework, the keyword being
-          ‘utility’. It is basically a set of classes that you can use in your
-          HTML.
-        </p>
-        <pre class="bg-gray-800 text-gray-300 rounded p-4 my-3">
-.bg-purple-700 {
-  background-color: #6b46c1;
-}
-
-.px-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}</pre
-        >
-        <p>
-          Therefore, we don’t have to write any custom CSS to get this button.
-          This can be heavily extended to build whole web applications without
-          the need for any other styles apart from a tailwind.
-        </p>
-        <p>...</p>
+        <div
+          class="font-wyekan bg-white shadow-sm p-5 rounded-xl ck-content"
+          dir="rtl"
+          v-html="post.content"
+        ></div>
       </div>
     </article>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'BlogPost',
+  data() {
+    return {
+      post: null,
+    }
+  },
+  async fetch() {
+    const data = await fetch(
+      `${this.$axios.defaults.baseURL}/articles/getPost/${this.$route.params.id}`
+    ).then((res) => res.json())
+    this.post = data
+  },
+}
+</script>

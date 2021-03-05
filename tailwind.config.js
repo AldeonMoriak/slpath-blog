@@ -8,7 +8,7 @@ module.exports = {
       wyekan: ['WYekan'],
     },
     extend: {
-      color: {
+      colors: {
         cyan: colors.cyan,
         teal: colors.teal,
       },

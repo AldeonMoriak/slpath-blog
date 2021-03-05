@@ -17,7 +17,8 @@
     "@tailwindcss/line-clamp": "^0.2.0",
     "core-js": "^3.8.3",
     "nuxt": "^2.14.12",
-    "vue-clickaway": "^2.2.2"
+    "vue-clickaway": "^2.2.2",
+    "vue-jalali-moment": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",

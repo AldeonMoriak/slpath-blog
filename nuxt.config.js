@@ -11,10 +11,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['~/assets/fonts/SansFont.css'],
+  css: ['~/assets/fonts/SansFont.css', '~/assets/css/ckeditor.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/vue-jalaali-moment'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,7 +35,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:4000',
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
