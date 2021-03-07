@@ -28,8 +28,8 @@
             image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.thumbnailUrl}`,
             link: `blog/${fetchedPost.admin.username}/${fetchedPost.id}`,
             date: fetchedPost.createdDateTime,
-            views: 10,
-            comments: 2,
+            views: fetchedPost.views,
+            comments: fetchedPost.commentCount,
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
@@ -66,8 +66,8 @@
             image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.thumbnailUrl}`,
             link: `blog/${fetchedPost.admin.username}/${fetchedPost.id}`,
             date: fetchedPost.createdDateTime,
-            views: 10,
-            comments: 2,
+            views: fetchedPost.views,
+            comments: fetchedPost.commentCount,
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
