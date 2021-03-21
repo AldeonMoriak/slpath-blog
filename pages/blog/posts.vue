@@ -3,35 +3,19 @@
     <article class="grid md:grid-cols-3 md:gap-16">
       <div class="hidden md:block">
         <aside
-          v-if="$fetchState.pending"
-          class="sticky top-14 space-y-1 font-bold tracking-wide my-14"
+          class="sticky top-28 space-y-1 font-bold tracking-wide my-14 text-center"
         >
-          <writer-card-skeleton />
-        </aside>
-
-        <p v-else-if="$fetchState.error">
-          مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
-        </p>
-        <aside
-          v-else
-          class="sticky top-14 space-y-1 font-bold tracking-wide my-14"
-        >
-          <writer-card
-            class="w-52"
-            :post="{
-              name: `${posts[0].admin.name}`,
-              alt: `عکس
-          ${posts[0].admin.name}`,
-              image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureThumbnailUrl}`,
-              description: `${posts[0].admin.description}`,
-            }"
-          />
+          <div class="text-gray-700 font-normal bg-purple-200 rounded-full">
+            جدیدترین مقالات وبسایت
+          </div>
         </aside>
       </div>
       <div v-if="$fetchState.pending" class="col-span-2 space-y-12 mt-16">
         <blog-post-skeleton />
       </div>
-      <p v-else-if="$fetchState.error">An error occurred :(</p>
+      <p v-else-if="$fetchState.error" class="block">
+        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
+      </p>
       <div v-else class="col-span-2 space-y-12 mt-16">
         <blog-post
           v-for="fetchedPost in posts"
@@ -60,12 +44,9 @@
 </template>
 
 <script>
-import WriterCard from '~/components/WriterCard.vue'
-import WriterCardSkeleton from '~/components/WriterCardSkeleton.vue'
-import infiniteScroll from '~/mixins/infiniteScroll'
+import infiniteScroll from '@/mixins/infiniteScroll'
 export default {
-  name: 'Writer',
-  components: { WriterCard, WriterCardSkeleton },
+  name: 'RecentPosts',
   mixins: [infiniteScroll],
   data() {
     return {
@@ -80,12 +61,12 @@ export default {
   },
   methods: {
     async fetchData() {
-      const data = await fetch(
-        `${this.$axios.defaults.baseURL}/articles/getPosts/${this.$route.params.slug}?page=${this.page}&limit=${this.limit}`
+      const posts = await fetch(
+        `${this.$axios.defaults.baseURL}/articles/getAll?page=${this.page}&limit=${this.limit}`
       ).then((res) => res.json())
-      this.posts.push(...data.data)
-      if (data.data && data.data.length > 0) this.page++
-      this.totalCount = data.totalCount
+      this.posts.push(...posts.data)
+      if (posts.data && posts.data.length > 0) this.page++
+      this.totalCount = posts.totalCount
     },
   },
 }

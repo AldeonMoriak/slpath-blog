@@ -323,6 +323,11 @@
   background: var(--ck-color-mention-background);
   color: var(--ck-color-mention-text);
 }
+
+/* .ck-content a {
+  @apply text-purple-500 hover:text-purple-700;
+} */
+
 @media print {
   /* ckeditor5-page-break/theme/pagebreak.css */
   .ck-content .page-break {

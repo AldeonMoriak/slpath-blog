@@ -1,11 +1,9 @@
 <template>
-  <div>
+  <div class="max-w-2xl mx-auto">
     <div v-if="$fetchState.pending" class="container px-4 py-14 mx-auto">
-      <blog-post-skeleton
-        class="w-full mx-auto mb-8 text-left md:w-3/4 lg:w-1/2"
-      />
+      <blog-post-skeleton class="w-full mx-auto mb-8 text-left md:w-3/4" />
     </div>
-    <div v-else class="w-full mx-auto md:w-3/4 lg:w-1/2 font-wyekan px-4">
+    <div v-else class="w-full mx-auto font-vazir px-4">
       <article
         dir="rtl"
         class="container py-14 mx-auto"
@@ -13,7 +11,7 @@
         itemscope
         itemtype="http://schema.org/BlogPosting"
       >
-        <div class="mb-8">
+        <div class="mb-8 mx-auto">
           <img
             :src="`${$axios.defaults.baseURL}/articles/image/${post.imageUrl}`"
             class="object-cover w-full h-64 bg-center rounded-t-lg"
@@ -21,19 +19,19 @@
           />
           <div class="bg-white rounded-b-xl py-0.5 pr-1 shadow-md">
             <h1
-              class="mb-3 mt-1 text-xl font-bold leading-tight text-gray-900 md:text-2xl"
+              class="mb-3 mt-1 text-lg font-bold leading-tight text-gray-900 md:text-xl"
               itemprop="headline"
               :title="post.title"
             >
               {{ post.title }}
             </h1>
             <div class="flex mb-6 pr-2 space-x-2">
-              <a
+              <nuxt-link
                 v-for="tag in post.tags"
                 :key="tag.id"
-                class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-xs hover:bg-purple-300"
-                href="#"
-                >{{ tag.title }}</a
+                class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-sm hover:bg-purple-300 h-6"
+                :to="`/blog/tag/${tag.title}`"
+                >{{ tag.title }}</nuxt-link
               >
             </div>
             <div class="flex items-center text-gray-700">
@@ -59,7 +57,7 @@
                 <p
                   class="ml-2 mb-1 text-xs font-semibold tracking-wider text-gray-500"
                 >
-                  {{ post.category.title }}
+                  {{ post.category ? post.category.title : '' }}
                 </p>
               </div>
             </div>
@@ -68,7 +66,7 @@
 
         <div class="">
           <div
-            class="font-wyekan bg-white shadow-md p-5 rounded-xl ck-content"
+            class="font-vazir p-5 rounded-xl ck-content prose lg:prose-xl mx-auto"
             dir="rtl"
             v-html="post.content"
           ></div>
@@ -79,8 +77,14 @@
         :key="message.id"
         :message="message"
         class="mb-6"
+        @reply-clicked="replyHandler"
       />
-      <blog-insert-comment :article-id="post.id" :parent-id="id" />
+      <blog-insert-comment
+        id="insert"
+        ref="insertComment"
+        :article-id="post.id"
+        :parent-id="id"
+      />
     </div>
   </div>
 </template>
@@ -102,6 +106,13 @@ export default {
       `${this.$axios.defaults.baseURL}/articles/getPost/${this.$route.params.id}`
     ).then((res) => res.json())
     this.post = data
+  },
+  methods: {
+    replyHandler(id) {
+      this.$scrollTo('#insert')
+      this.id = id
+      this.$refs.insertComment.$refs.name.focus()
+    },
   },
 }
 </script>

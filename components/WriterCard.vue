@@ -1,17 +1,19 @@
 <template>
-  <div class="font-wyekan">
+  <div class="font-vazir">
     <img
       :alt="post.alt"
       :src="post.image"
-      class="object-cover w-14 h-14 rounded-full shadow-sm text-sm mx-auto"
+      class="object-cover w-full text-sm mx-auto shadow-inner rounded-md mb-3"
     />
     <p
-      class="transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800 text-sm text-center"
+      class="text-gray-900 text-lg font-medium text-right leading-8"
       aria-label="نام نویسنده"
     >
       {{ post.name }}
     </p>
-    <p class="text-gray-600 text-xs text-right prose max-w-xs">
+    <p
+      class="text-gray-600 text-right font-medium text-xs prose max-w-xs lg:prose-sm"
+    >
       {{ post.description }}
     </p>
   </div>

@@ -6,32 +6,33 @@
           v-if="$fetchState.pending"
           class="sticky top-14 space-y-1 font-bold tracking-wide my-14"
         >
-          <writer-card-skeleton />
+          <div class="h-8 w-14 animate-pulse bg-purple-200 rounded-full" />
         </aside>
 
-        <p v-else-if="$fetchState.error">
+        <p v-else-if="$fetchState.error" class="block">
           مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
         </p>
         <aside
           v-else
-          class="sticky top-14 space-y-1 font-bold tracking-wide my-14"
+          class="sticky top-14 space-y-1 font-bold tracking-wide my-14 text-center"
         >
-          <writer-card
-            class="w-52"
-            :post="{
-              name: `${posts[0].admin.name}`,
-              alt: `عکس
-          ${posts[0].admin.name}`,
-              image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureThumbnailUrl}`,
-              description: `${posts[0].admin.description}`,
-            }"
-          />
+          <span class="text-gray-500 font-thin block"> مقالاتی که تگ </span>
+          <div
+            class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-sm hover:bg-purple-300 h-8 text-center py-2 inline-block"
+          >
+            {{ $route.params.tag }}
+          </div>
+          <span class="text-gray-500 font-thin block">
+            در آن ها استفاده شده است
+          </span>
         </aside>
       </div>
       <div v-if="$fetchState.pending" class="col-span-2 space-y-12 mt-16">
         <blog-post-skeleton />
       </div>
-      <p v-else-if="$fetchState.error">An error occurred :(</p>
+      <p v-else-if="$fetchState.error" class="block">
+        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
+      </p>
       <div v-else class="col-span-2 space-y-12 mt-16">
         <blog-post
           v-for="fetchedPost in posts"
@@ -52,41 +53,28 @@
           }"
         />
       </div>
-      <div v-if="isLoading" class="col-span-2 space-y-12 mt-16">
-        <blog-post-skeleton />
-      </div>
     </article>
   </main>
 </template>
 
 <script>
-import WriterCard from '~/components/WriterCard.vue'
-import WriterCardSkeleton from '~/components/WriterCardSkeleton.vue'
-import infiniteScroll from '~/mixins/infiniteScroll'
 export default {
   name: 'Writer',
-  components: { WriterCard, WriterCardSkeleton },
-  mixins: [infiniteScroll],
   data() {
     return {
       posts: [],
       page: 1,
       limit: 10,
-      totalCount: 0,
     }
   },
   async fetch() {
-    await this.fetchData()
+    const data = await fetch(
+      `${this.$axios.defaults.baseURL}/articles/tag/${encodeURIComponent(
+        this.$route.params.tag
+      )}?page=${this.page}&limit=${this.limit}`
+    ).then((res) => res.json())
+    this.posts = data
   },
-  methods: {
-    async fetchData() {
-      const data = await fetch(
-        `${this.$axios.defaults.baseURL}/articles/getPosts/${this.$route.params.slug}?page=${this.page}&limit=${this.limit}`
-      ).then((res) => res.json())
-      this.posts.push(...data.data)
-      if (data.data && data.data.length > 0) this.page++
-      this.totalCount = data.totalCount
-    },
-  },
+  methods: {},
 }
 </script>

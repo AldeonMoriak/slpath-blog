@@ -1,6 +1,6 @@
 <template>
   <div class="shadow-md z-50" dir="rtl">
-    <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 font-wyekan">
+    <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 font-vazir">
       <div
         class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800"
       >

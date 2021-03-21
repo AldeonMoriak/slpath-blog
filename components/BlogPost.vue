@@ -5,7 +5,7 @@
     <nuxt-link :to="post.link" aria-label="Article"
       ><img
         :src="post.image"
-        class="object-cover w-full h-64 rounded-t"
+        class="object-cover w-full h-64 rounded-t shadow-inner"
         :alt="post.title"
       />
     </nuxt-link>
@@ -15,7 +15,7 @@
           :to="post.link"
           aria-label="Article"
           class="inline-block mb-3 text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
-          ><p class="text-xl font-bold leading-5">
+          ><p class="text-xl font-semibold leading-8">
             {{ post.title }}
           </p></nuxt-link
         >
@@ -23,7 +23,7 @@
           {{ post.date | moment('jYYYY/jMM/jDD') }}
         </p>
       </div>
-      <p class="mb-4 text-gray-700 line-clamp-3">
+      <p class="mb-4 text-gray-700 line-clamp-3 prose">
         {{ post.excerpt }}
       </p>
       <div class="flex items-center mb-4">
@@ -31,7 +31,7 @@
           <img
             :src="post.author.image"
             alt="آواتار"
-            class="m-0 object-cover w-10 h-10 rounded-full shadow-sm ml-4"
+            class="m-0 object-cover w-10 h-10 rounded-full shadow-inner ml-4"
           />
         </nuxt-link>
         <span>

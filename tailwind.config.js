@@ -5,9 +5,24 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      wyekan: ['WYekan'],
+      wyekan: ['WYekan', 'Vazir', 'Roboto'],
+      vazir: ['Vazir', 'WYekan', 'Roboto'],
     },
     extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            a: {
+              'text-decoration': 'none',
+              color: theme('colors.purple.500'),
+              '&:hover': {
+                color: theme('colors.purple.700'),
+                'text-decoration': 'underline',
+              },
+            },
+          },
+        },
+      }),
       colors: {
         cyan: colors.cyan,
         teal: colors.teal,
@@ -20,5 +35,8 @@ module.exports = {
       boxShadow: ['active'],
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+  ],
 }

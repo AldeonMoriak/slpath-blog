@@ -1,12 +1,39 @@
 <template>
-  <div dir="rtl" class="font-wyekan">
+  <div dir="rtl" class="font-vazir">
     <div
       class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
-      <p class="text-xl font-semibold text-gray-500 mb-2">
-        پربازدیدترین مقالات
-      </p>
-      <div class="border-b-2 border-gray-400 mb-4 w-72"></div>
+      <div class="flex flex-col w-72">
+        <div class="flex justify-between items-baseline align-baseline">
+          <p class="text-xl font-normal text-gray-500 mb-2">
+            پربازدیدترین مقالات
+          </p>
+          <nuxt-link
+            to="blog/most-viewed"
+            class="flex transition-colors duration-200 text-purple-800 hover:text-purple-600"
+          >
+            <span class="ml-1"> همه </span>
+            <div class="rounded-full h-5 w-5 bg-white hover:bg-purple-200">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </div>
+          </nuxt-link>
+        </div>
+
+        <div class="border-b-2 shadow-md rounded border-purple-900 mb-4"></div>
+      </div>
       <div
         v-if="$fetchState.pending"
         class="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full"
@@ -15,13 +42,15 @@
         <blog-post-skeleton />
         <blog-post-skeleton />
       </div>
-      <p v-else-if="$fetchState.error">An error occurred :(</p>
+      <p v-else-if="$fetchState.error" class="block">
+        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
+      </p>
       <div
         v-else
         class="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full"
       >
         <blog-post
-          v-for="fetchedPost in posts"
+          v-for="fetchedPost in favs"
           :key="fetchedPost.id"
           :post="{
             excerpt: fetchedPost.description,
@@ -43,8 +72,34 @@
     <div
       class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
-      <p class="text-xl font-semibold text-gray-500 mb-2">جدیدترین مقالات</p>
-      <div class="border-b-2 border-gray-400 mb-4 w-72"></div>
+      <div class="flex flex-col w-72">
+        <div class="flex justify-between items-baseline align-baseline">
+          <p class="text-xl font-normal text-gray-500 mb-2">جدیدترین مقالات</p>
+          <nuxt-link
+            to="blog/posts"
+            class="flex transition-colors duration-200 text-purple-800 hover:text-purple-600"
+          >
+            <span class="ml-1"> همه </span>
+            <div class="rounded-full h-5 w-5 bg-white hover:bg-purple-200">
+              <svg
+                class="h-5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </div>
+          </nuxt-link>
+        </div>
+        <div class="border-b-2 shadow-md rounded border-purple-900 mb-4"></div>
+      </div>
       <div
         v-if="$fetchState.pending"
         class="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full"
@@ -53,7 +108,9 @@
         <blog-post-skeleton />
         <blog-post-skeleton />
       </div>
-      <p v-else-if="$fetchState.error">An error occurred :(</p>
+      <p v-else-if="$fetchState.error" class="block">
+        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
+      </p>
       <div
         v-else
         class="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full"
@@ -88,14 +145,19 @@ export default {
   data() {
     return {
       posts: [],
+      favs: [],
     }
   },
   async fetch() {
     const data = await fetch(
-      `${this.$axios.defaults.baseURL}/articles/getAll`
+      `${this.$axios.defaults.baseURL}/articles/getAll?page=1&limit=3`
     ).then((res) => res.json())
-    console.log(data)
-    this.posts = data
+    this.posts = data.data
+
+    const favs = await fetch(
+      `${this.$axios.defaults.baseURL}/articles/getAllFavs?page=1&limit=3`
+    ).then((res) => res.json())
+    this.favs = favs.data
   },
 }
 </script>
