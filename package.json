@@ -18,6 +18,7 @@
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.8.3",
     "nuxt": "^2.15.3",
+    "v-viewer": "^1.5.1",
     "vue-clickaway": "^2.2.2",
     "vue-jalali-moment": "^1.0.0",
     "vue-scrollto": "^2.20.0"
@@ -35,6 +36,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.5.0",
     "nightwatch": "^1.5.1",
+    "nuxt-windicss": "^0.5.3",
     "postcss": "^8.2.8",
     "prettier": "^2.2.1"
   }

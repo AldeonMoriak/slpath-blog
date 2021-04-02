@@ -3,9 +3,9 @@
     <div
       class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
-      <div class="flex flex-col w-72">
+      <div class="flex flex-col w-full sm:max-w-sm mx-auto lg:mx-0">
         <div class="flex justify-between items-baseline align-baseline">
-          <p class="text-xl font-normal text-gray-500 mb-2">
+          <p class="text-xl font-medium text-gray-500 mb-2">
             پربازدیدترین مقالات
           </p>
           <nuxt-link
@@ -72,9 +72,9 @@
     <div
       class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
-      <div class="flex flex-col w-72">
+      <div class="flex flex-col w-full sm:max-w-sm mx-auto lg:mx-0">
         <div class="flex justify-between items-baseline align-baseline">
-          <p class="text-xl font-normal text-gray-500 mb-2">جدیدترین مقالات</p>
+          <p class="text-xl font-medium text-gray-500 mb-2">جدیدترین مقالات</p>
           <nuxt-link
             to="blog/posts"
             class="flex transition-colors duration-200 text-purple-800 hover:text-purple-600"

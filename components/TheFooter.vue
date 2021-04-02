@@ -37,7 +37,7 @@
       <span
         class="inline-flex sm:mr-auto sm:mt-0 mt-4 justify-center sm:justify-start"
       >
-        <a class="text-gray-500">
+        <a href="facebook" class="text-gray-500">
           <svg
             fill="currentColor"
             stroke-linecap="round"
@@ -51,7 +51,7 @@
             ></path>
           </svg>
         </a>
-        <a class="mr-3 text-gray-500">
+        <a href="twitter" class="mr-3 text-gray-500">
           <svg
             fill="currentColor"
             stroke-linecap="round"
@@ -65,7 +65,7 @@
             ></path>
           </svg>
         </a>
-        <a class="mr-3 text-gray-500">
+        <a href="instagram" class="mr-3 text-gray-500">
           <svg
             fill="none"
             stroke="currentColor"
@@ -81,7 +81,7 @@
             ></path>
           </svg>
         </a>
-        <a class="mr-3 text-gray-500">
+        <a class="mr-3 text-gray-500" href="linkedin">
           <svg
             fill="currentColor"
             stroke="currentColor"

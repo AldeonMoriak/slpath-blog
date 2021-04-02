@@ -21,6 +21,7 @@ export default {
     '~/plugins/vue-jalaali-moment',
     '~/plugins/scroll-to',
     '~/plugins/axios.js',
+    '~/plugins/viewer.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -31,6 +32,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
+    // 'nuxt-windicss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -45,8 +47,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://localhost:4000',
+    // baseURL: 'http://192.168.43.199:4000',
   },
-
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
@@ -56,4 +58,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  // server: {
+  //   host: '0.0.0.0',
+  // },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  },
 }

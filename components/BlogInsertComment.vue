@@ -12,10 +12,10 @@
             <input
               ref="name"
               v-model="name"
-              class="bg-purple-50 rounded leading-normal resize-none w-full py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
+              :class="nameClass"
+              class="bg-purple-50 rounded leading-normal resize-none w-full py-2 px-3 font-light text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
               name="body"
               placeholder="نام"
-              required
             />
           </div>
           <div class="w-full px-3 mb-2 mt-2">
@@ -23,7 +23,7 @@
               v-model="email"
               type="email"
               dir="rtl"
-              class="bg-purple-50 rounded leading-normal resize-none w-full py-2 px-3 font-medium appearance-none placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
+              class="bg-purple-50 rounded leading-normal resize-none w-full py-2 px-3 font-light text-base text-gray-700 appearance-none placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
               name="body"
               placeholder="ایمیل"
             />
@@ -32,11 +32,20 @@
         <div class="w-full md:w-full px-3 mb-2 mt-2">
           <textarea
             v-model="content"
-            class="bg-purple-50 rounded leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 appearance-none focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
+            :class="contentClass"
+            class="bg-purple-50 rounded leading-normal resize-none w-full h-20 py-2 px-3 font-light text-base text-gray-700 placeholder-gray-400 appearance-none focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
             name="body"
             placeholder="چیزی بنویسید..."
-            required
           ></textarea>
+          <div
+            :class="
+              content.length > 300
+                ? 'text-red-500 text-left'
+                : 'text-purple-500 text-left'
+            "
+          >
+            {{ content.length }}
+          </div>
         </div>
 
         <div class="w-full flex items-start md:w-full px-3">
@@ -78,11 +87,27 @@ export default {
       message: '',
       type: '',
       show: false,
+      nameClass: '',
+      contentClass: '',
     }
   },
   methods: {
     async insertComment() {
-      if (!this.name || !this.content) return
+      this.nameClass = !this.name ? 'ring-2 ring-red-600' : ''
+      this.contentClass =
+        !this.content || this.content.length > 300 ? 'ring-2 ring-red-600' : ''
+
+      if (this.content.length > 300) {
+        this.type = 'error'
+        this.show = true
+        this.message = 'تعداد مجاز کاراکترهای نظر ۳۰۰ می باشد'
+        setTimeout(() => {
+          this.message = ''
+          this.type = ''
+          this.show = false
+        }, 4000)
+      }
+      if (!this.name || !this.content || this.content.length > 300) return
       await this.$axios
         .$post('/comments/insertComment', {
           name: this.name,

@@ -65,6 +65,7 @@
   clear: both;
   text-align: center;
   margin: 1em auto;
+  cursor: pointer;
 }
 /* ckeditor5-image/theme/image.css */
 .ck-content .image img {

@@ -29,7 +29,7 @@
               <nuxt-link
                 v-for="tag in post.tags"
                 :key="tag.id"
-                class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-sm hover:bg-purple-300 h-6"
+                class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-sm hover:bg-purple-300 max-h-12"
                 :to="`/blog/tag/${tag.title}`"
                 >{{ tag.title }}</nuxt-link
               >
@@ -66,11 +66,20 @@
 
         <div class="">
           <div
-            class="font-vazir p-5 rounded-xl ck-content prose lg:prose-xl mx-auto"
+            v-viewer.static
+            class="font-vazir p-5 rounded-xl ck-content prose lg:prose-xl mx-auto selection"
             dir="rtl"
             v-html="post.content"
           ></div>
         </div>
+        <a
+          v-if="post.referenceUrl"
+          class="text-lg font-medium text-purple-500 hover:text-purple-700 bg-white block rounded-md shadow-sm py-5 pr-5 has-tooltip"
+          :href="post.referenceUrl"
+          target="_blank"
+          >لینک مرجع
+          <div class="tooltip text-left">{{ post.referenceUrl }}</div>
+        </a>
       </article>
       <blog-comment
         v-for="message in post.comment"

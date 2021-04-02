@@ -9,6 +9,9 @@ module.exports = {
       vazir: ['Vazir', 'WYekan', 'Roboto'],
     },
     extend: {
+      transitionDuration: {
+        4000: '4000ms',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

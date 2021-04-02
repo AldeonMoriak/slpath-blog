@@ -15,7 +15,10 @@ export default {
   methods: {
     async handleScroll() {
       if (!this.hasFetchedAllData) {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        if (
+          Math.ceil(window.innerHeight + window.scrollY) >=
+          document.body.scrollHeight
+        ) {
           this.isLoading = true
 
           await this.fetchData()

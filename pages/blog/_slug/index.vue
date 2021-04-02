@@ -1,6 +1,33 @@
 <template>
   <main class="max-w-2xl lg:max-w-4xl mx-auto px-6 font-vazir" dir="rtl">
-    <article class="grid md:grid-cols-3 md:gap-16">
+    <div class="max-w-max mx-auto md:hidden mt-8 md:mt-0">
+      <div v-if="$fetchState.pending" class="space-y-1 font-bold tracking-wide">
+        <writer-card-skeleton />
+      </div>
+
+      <p v-else-if="$fetchState.error">
+        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
+      </p>
+      <div v-else>
+        <writer-card
+          :post="{
+            name: `${posts[0].admin.name}`,
+            alt: `عکس
+          ${posts[0].admin.name}`,
+            image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureThumbnailUrl}`,
+            description: `${posts[0].admin.description}`,
+          }"
+        >
+          <nuxt-link
+            :to="'/therapists/' + posts[0].admin.username"
+            aria-label=""
+            class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
+            >بیشتر</nuxt-link
+          >
+        </writer-card>
+      </div>
+    </div>
+    <main class="grid md:grid-cols-3 md:gap-16">
       <div class="hidden md:block">
         <aside
           v-if="$fetchState.pending"
@@ -25,13 +52,22 @@
               image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureThumbnailUrl}`,
               description: `${posts[0].admin.description}`,
             }"
-          />
+          >
+            <nuxt-link
+              :to="'/therapists/' + posts[0].admin.username"
+              aria-label=""
+              class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
+              >بیشتر</nuxt-link
+            >
+          </writer-card>
         </aside>
       </div>
       <div v-if="$fetchState.pending" class="col-span-2 space-y-12 mt-16">
         <blog-post-skeleton />
       </div>
-      <p v-else-if="$fetchState.error">An error occurred :(</p>
+      <p v-else-if="$fetchState.error">
+        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
+      </p>
       <div v-else class="col-span-2 space-y-12 mt-16">
         <blog-post
           v-for="fetchedPost in posts"
@@ -55,7 +91,7 @@
       <div v-if="isLoading" class="col-span-2 space-y-12 mt-16">
         <blog-post-skeleton />
       </div>
-    </article>
+    </main>
   </main>
 </template>
 

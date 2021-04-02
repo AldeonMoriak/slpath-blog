@@ -1,5 +1,9 @@
 <template>
-  <div class="font-vazir">
+  <div
+    class="font-vazir"
+    @mouseover="$emit('mouse-over-event')"
+    @mouseout="$emit('mouse-out-event')"
+  >
     <img
       :alt="post.alt"
       :src="post.image"
@@ -12,10 +16,11 @@
       {{ post.name }}
     </p>
     <p
-      class="text-gray-600 text-right font-medium text-xs prose max-w-xs lg:prose-sm"
+      class="text-gray-500 text-right font-medium text-xs prose max-w-xs sm:prose-sm"
     >
       {{ post.description }}
     </p>
+    <slot></slot>
   </div>
 </template>
 
