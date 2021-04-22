@@ -11,7 +11,7 @@
         :class="width"
       ></div>
     </div>
-    <transition mode="out-in" name="slide-fade">
+    <transition mode="out-in" name="fade">
       <div
         :key="interests[index].id"
         class="grid grid-cols-1 sm:grid-cols-2 sm:px-8 sm:py-12 sm:gap-x-8 md:py-16 bg-white"
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import sliderCounter from '@/mixins/sliderCounter'
+import sliderCounter from '@/mixins/sliderCounter.js'
 export default {
   name: 'ServocesCard',
   mixins: [sliderCounter],
@@ -93,13 +93,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: opacity 0.5s;
-}
-.slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-</style>

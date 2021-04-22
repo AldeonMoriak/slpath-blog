@@ -14,7 +14,7 @@
             <nuxt-link
               to="/"
               class="text-lg font-semibold tracking-widest text-purple-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:bg-gray-200 py-2"
-              >اسم وبسایت</nuxt-link
+              >تانی آنلاین</nuxt-link
             >
             <button
               class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"

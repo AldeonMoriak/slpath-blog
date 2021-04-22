@@ -1,7 +1,8 @@
-const colors = require('tailwindcss/colors')
+const colors = require('windicss/colors')
+const typography = require('windicss/plugin/typography')
+const lineClamp = require('windicss/plugin/line-clamp')
 
 module.exports = {
-  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -32,14 +33,11 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      backgroundColor: ['active'],
-      boxShadow: ['active'],
-    },
-  },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/typography'),
-  ],
+  // variants: {
+  //   extend: {
+  //     backgroundColor: ['active'],
+  //     boxShadow: ['active'],
+  //   },
+  // },
+  plugins: [lineClamp, typography],
 }

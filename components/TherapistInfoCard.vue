@@ -65,7 +65,7 @@
               >{{ host }}/blog/{{ therapist.username }}</nuxt-link
             >
           </div>
-          <div class="flex items-center py-1">
+          <div v-if="therapist.clinicAddress" class="flex items-center py-1">
             <svg
               class="text-purple-700 fill-current w-5 h-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -84,6 +84,7 @@
       <div class="text-white bg-purple-700">
         <div class="p-4 text-sm md:flex md:items-center md:justify-center">
           <a
+            v-if="therapist.whatsappId"
             :href="'https://wa.me/' + therapist.whatsappId"
             target="_blank"
             class="flex md:block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-purple-800"
@@ -105,6 +106,7 @@
             >
           </a>
           <a
+            v-if="therapist.telegramUsername"
             :href="'https://t.me/' + therapist.telegramUsername"
             target="_blank"
             class="flex md:block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-purple-800"
@@ -126,6 +128,7 @@
             >
           </a>
           <a
+            v-if="therapist.instagramUsername"
             :href="'https://www.instagram.com/' + therapist.instagramUsername"
             target="_blank"
             class="flex md:block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-purple-800"
@@ -149,6 +152,7 @@
             >
           </a>
           <a
+            v-if="therapist.linkedinId"
             :href="'https://www.linkedin.com/in/' + therapist.linkedinId"
             target="_blank"
             class="flex md:block px-4 py-2 m-2 transition duration-500 ease-in-out rounded hover:bg-purple-800"

@@ -22,7 +22,7 @@
             :to="'/therapists/' + posts[0].admin.username"
             aria-label=""
             class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
-            >بیشتر</nuxt-link
+            >اطلاعات تماس</nuxt-link
           >
         </writer-card>
       </div>
@@ -57,7 +57,7 @@
               :to="'/therapists/' + posts[0].admin.username"
               aria-label=""
               class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
-              >بیشتر</nuxt-link
+              >اطلاعات تماس</nuxt-link
             >
           </writer-card>
         </aside>

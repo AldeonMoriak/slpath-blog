@@ -20,18 +20,18 @@
             d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
           ></path>
         </svg>
-        <span class="mr-3 text-xl">اسم وبسایت</span>
+        <span class="mr-3 text-xl">تانی آنلاین</span>
       </a>
       <p
         class="text-sm text-gray-500 sm:mr-4 sm:pr-4 sm:border-r-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
       >
-        2021 © اسم وبسایت —
+        2021 © تانی آنلاین —
         <a
           href="https://twitter.com/knyttneve"
           class="text-gray-600 mr-1"
           rel="noopener noreferrer"
           target="_blank"
-          >اسم وبسایت</a
+          >تانی آنلاین</a
         >
       </p>
       <span
