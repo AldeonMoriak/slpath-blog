@@ -1,15 +1,37 @@
 <template>
-  <main class="max-w-2xl lg:max-w-4xl mx-auto px-6 font-vazir" dir="rtl">
+  <div v-if="noData">
+    <h1
+      class="text-center font-vazir text-purple-600 mt-10 text-2xl sm:text-4xl"
+      dir="rtl"
+    >
+      هنوز مطلبی در این صفحه قرار نگرفته است.
+    </h1>
+    <div class="mx-auto text-center w-sm font-vazir text-purple-600 p-3 mt-5">
+      <nuxt-link
+        to="/"
+        class="hover:(text-purple-800, bg-purple-200) rounded p-5"
+        >صفحه اصلی</nuxt-link
+      >
+    </div>
+    <lottie-player
+      class="mx-auto h-md"
+      autoplay
+      loop
+      src="/animations/blogger.json"
+      speed="1"
+      debug
+    ></lottie-player>
+  </div>
+  <main v-else class="max-w-2xl lg:max-w-4xl mx-auto px-6 font-vazir" dir="rtl">
     <div class="max-w-max mx-auto md:hidden mt-8 md:mt-0">
       <div v-if="$fetchState.pending" class="space-y-1 font-bold tracking-wide">
         <writer-card-skeleton />
       </div>
 
-      <p v-else-if="$fetchState.error">
-        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
-      </p>
+      <p v-else-if="$fetchState.error"></p>
       <div v-else>
         <writer-card
+          v-if="posts"
           :post="{
             name: `${posts[0].admin.name}`,
             alt: `عکس
@@ -44,6 +66,7 @@
           class="sticky top-14 space-y-1 font-bold tracking-wide my-14"
         >
           <writer-card
+            v-if="posts"
             class="w-52"
             :post="{
               name: `${posts[0].admin.name}`,
@@ -65,9 +88,18 @@
       <div v-if="$fetchState.pending" class="col-span-2 space-y-12 mt-16">
         <blog-post-skeleton />
       </div>
-      <p v-else-if="$fetchState.error">
-        مشکلی پیش آمده است. لطفا صفحه را رفرش کنید
-      </p>
+      <div v-else-if="$fetchState.error">
+        <!-- <lottie-animation path="~/assets/animations/blogger.json" /> -->
+        <lottie-player
+          autoplay
+          controls
+          loop
+          style="width: 400px"
+          src="/animations/not-found.json"
+          speed="1"
+          debug
+        ></lottie-player>
+      </div>
       <div v-else class="col-span-2 space-y-12 mt-16">
         <blog-post
           v-for="fetchedPost in posts"
@@ -106,6 +138,7 @@ export default {
   data() {
     return {
       posts: [],
+      noData: false,
       page: 1,
       limit: 10,
       totalCount: 0,
@@ -119,8 +152,10 @@ export default {
       const data = await fetch(
         `${this.$axios.defaults.baseURL}/articles/getPosts/${this.$route.params.slug}?page=${this.page}&limit=${this.limit}`
       ).then((res) => res.json())
-      this.posts.push(...data.data)
-      if (data.data && data.data.length > 0) this.page++
+      if (data.data && data.data.length > 0) {
+        this.page++
+        this.posts.push(...data.data)
+      } else this.noData = true
       this.totalCount = data.totalCount
     },
   },

@@ -53,7 +53,7 @@
               :to="'/therapists/' + therapists[index].username"
               class="bg-purple-100 text-purple-700 text-base font-semibold px-6 py-1 mt-10 rounded-lg hover:bg-purple-300 hover:text-purple-900"
             >
-              بیشتر
+              اطلاعات تماس
             </nuxt-link>
           </div>
         </div>

@@ -67,7 +67,7 @@
         <div class="">
           <div
             v-viewer.static
-            class="font-vazir p-5 rounded-xl ck-content prose lg:prose-xl mx-auto selection"
+            class="font-vazir p-5 rounded-xl ck-content mx-auto selection text-gray-700"
             dir="rtl"
             v-html="post.content"
           ></div>

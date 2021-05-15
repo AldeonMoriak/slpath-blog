@@ -2,7 +2,7 @@
   <transition name="back-to-top-fade">
     <button
       v-show="visible"
-      class="fixed right-6 bottom-3 uppercase p-3 flex items-center bg-purple-500 text-purple-100 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
+      class="fixed left-6 bottom-3 uppercase p-3 flex items-center bg-purple-500 text-purple-100 max-w-max shadow-sm hover:shadow-lg rounded-full w-12 h-12"
       @click="backToTop"
     >
       <svg

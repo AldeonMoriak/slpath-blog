@@ -21,6 +21,7 @@
           <div class="w-full px-3 mb-2 mt-2">
             <input
               v-model="email"
+              :class="emailClass"
               type="email"
               dir="rtl"
               class="bg-purple-50 rounded leading-normal resize-none w-full py-2 px-3 font-light text-base text-gray-700 appearance-none placeholder-gray-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-purple-600 shadow-inner"
@@ -81,6 +82,8 @@ export default {
   },
   data() {
     return {
+      timeout: null,
+      isEmail: true,
       name: '',
       content: '',
       email: '',
@@ -89,19 +92,40 @@ export default {
       show: false,
       nameClass: '',
       contentClass: '',
+      emailClass: '',
     }
   },
   methods: {
     async insertComment() {
+      if (this.timeout) clearTimeout(this.timeout)
       this.nameClass = !this.name ? 'ring-2 ring-red-600' : ''
       this.contentClass =
         !this.content || this.content.length > 300 ? 'ring-2 ring-red-600' : ''
 
+      if (this.email) {
+        this.isEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+          this.email
+        )
+      }
+
+      if (!this.isEmail) {
+        this.type = 'error'
+        this.show = true
+        this.message = 'لطفا یک ایمیل معتبر وارد کنید'
+        this.timeout = setTimeout(() => {
+          this.message = ''
+          this.type = ''
+          this.show = false
+        }, 4000)
+
+        this.emailClass = 'ring-2 ring-red-600'
+        return
+      } else this.emailClass = ''
       if (this.content.length > 300) {
         this.type = 'error'
         this.show = true
         this.message = 'تعداد مجاز کاراکترهای نظر ۳۰۰ می باشد'
-        setTimeout(() => {
+        this.timeout = setTimeout(() => {
           this.message = ''
           this.type = ''
           this.show = false
@@ -123,7 +147,8 @@ export default {
           this.name = ''
           this.content = ''
           this.email = ''
-          setTimeout(() => {
+          this.isEmail = true
+          this.timeout = setTimeout(() => {
             this.message = ''
             this.type = ''
             this.show = false
@@ -135,7 +160,7 @@ export default {
           })
           this.type = 'error'
           this.show = true
-          setTimeout(() => {
+          this.timeout = setTimeout(() => {
             this.message = ''
             this.type = ''
             this.show = false

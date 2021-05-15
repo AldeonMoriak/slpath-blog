@@ -13,20 +13,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  props: {
-    post: {
-      type: Object,
-      default() {
-        return {
-          image: '',
-          name: '',
-          alt: '',
-        }
-      },
-    },
-  },
-}
-</script>
