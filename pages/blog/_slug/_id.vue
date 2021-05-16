@@ -19,7 +19,7 @@
           />
           <div class="bg-white rounded-b-xl py-0.5 pr-1 shadow-md">
             <h1
-              class="mb-3 mt-1 text-lg font-bold leading-tight text-gray-900 md:text-xl"
+              class="mb-3 mt-2 text-lg font-bold leading-tight text-gray-900 md:text-xl"
               itemprop="headline"
               :title="post.title"
             >
@@ -67,7 +67,7 @@
         <div class="">
           <div
             v-viewer.static
-            class="font-vazir p-5 rounded-xl ck-content mx-auto selection text-gray-700"
+            class="font-vazir p-5 prose prose-xl rounded-xl ck-content mx-auto selection text-gray-700"
             dir="rtl"
             v-html="post.content"
           ></div>

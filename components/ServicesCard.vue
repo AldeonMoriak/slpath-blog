@@ -31,7 +31,7 @@
           class="col-start-1 row-start-3 space-y-3 px-4 my-5 sm:mt-2 sm:mb-4"
         >
           <p
-            class="flex items-center text-gray-600 text-sm font-medium prose prose-sm lg:prose-lg"
+            class="flex items-center text-gray-600 text-sm font-medium prose prose-sm"
           >
             {{ interests[index].description }}
           </p>

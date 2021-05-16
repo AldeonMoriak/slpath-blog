@@ -116,7 +116,7 @@
           />
           <div class="py-0.5 pr-1">
             <h1
-              class="mb-3 mt-1 mr-3 text-xl font-black leading-tight text-gray-900 md:text-2xl"
+              class="mb-3 mt-2 mr-3 text-xl font-black leading-tight text-gray-900 md:text-2xl"
               itemprop="headline"
               :title="interest.title"
             >
@@ -135,7 +135,7 @@
         <div class="">
           <div
             v-viewer.static
-            class="font-vazir p-5 rounded-xl ck-content prose lg:prose-xl mx-auto selection"
+            class="list-disc font-vazir p-5 rounded-xl ck-content prose prose-xl mx-auto selection"
             dir="rtl"
             v-html="interest.content"
           ></div>

@@ -1,5 +1,5 @@
 .ck-content a {
-  @apply text-purple-500 hover:text-purple-900
+  @apply text-purple-500 hover:text-purple-900;
 }
 
 .tooltip {
@@ -8,6 +8,22 @@
 
 .has-tooltip:hover .tooltip {
   @apply visible z-50;
+}
+
+.prose ol > li::before {
+  @apply -right-5;
+}
+.prose ol > li::marker {
+  @apply list-none;
+}
+
+.prose ul > li::marker {
+  @apply list-none;
+}
+
+
+.prose-xl ul > li::before {
+  @apply -right-5;
 }
 
 .fade-enter-active,
@@ -55,11 +71,11 @@
   @apply bg-purple-200 text-purple-900;
 }
 
-.back-to-top-fade-enter-active, 
+.back-to-top-fade-enter-active,
 .back-to-top-fade-leave-active {
-  transition: opacity .7s;
+  transition: opacity 0.7s;
 }
-.back-to-top-fade-enter, 
+.back-to-top-fade-enter,
 .back-to-top-fade-leave-to {
   opacity: 0;
 }

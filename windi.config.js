@@ -1,6 +1,7 @@
 const colors = require('windicss/colors')
 const typography = require('windicss/plugin/typography')
 const lineClamp = require('windicss/plugin/line-clamp')
+const tailwindDir = require('tailwindcss-dir')
 
 module.exports = {
   darkMode: false, // or 'media' or 'class'
@@ -39,5 +40,5 @@ module.exports = {
   //     boxShadow: ['active'],
   //   },
   // },
-  plugins: [lineClamp, typography],
+  plugins: [lineClamp, typography(), tailwindDir],
 }
