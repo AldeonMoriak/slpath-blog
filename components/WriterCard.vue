@@ -5,20 +5,21 @@
     @mouseout="$emit('mouse-out-event')"
   >
     <img
-      :alt="post.alt"
-      :src="post.image"
+      :alt="writer.alt"
+      :src="writer.image"
       class="object-cover w-full text-sm mx-auto shadow-inner rounded-md mb-3"
+      @click="$router.push('/therapists/' + writer.username)"
     />
     <p
       class="text-gray-900 text-lg font-medium text-right leading-8"
       aria-label="نام نویسنده"
     >
-      {{ post.name }}
+      {{ writer.name }}
     </p>
     <p
       class="text-gray-500 text-right font-medium text-xs prose max-w-xs sm:prose-sm"
     >
-      {{ post.description }}
+      {{ writer.description }}
     </p>
     <slot></slot>
   </div>
@@ -27,13 +28,14 @@
 <script>
 export default {
   props: {
-    post: {
+    writer: {
       type: Object,
       default() {
         return {
           image: '',
           name: '',
           alt: '',
+          username: '',
         }
       },
     },

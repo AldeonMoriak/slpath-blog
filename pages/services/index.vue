@@ -64,22 +64,18 @@
           </div>
         </div>
         <div class="bg-white shadow-md rounded-lg py-5 px-2">
-          <div class="h-full">
-            <h6 class="mb-3 text-xl font-bold leading-5">
-              {{ interest.title }}
-            </h6>
-            <p class="mb-3 text-sm text-gray-900 prose lg:prose-sm">
-              {{ interest.description }}
-            </p>
-          </div>
-          <div>
-            <nuxt-link
-              :to="'/services/' + interest.id"
-              aria-label=""
-              class="-mt-8 inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-400 px-4 rounded-md py-1 align-middle hover:text-purple-200 justify-end"
-              >بیشتر</nuxt-link
-            >
-          </div>
+          <h6 class="mb-3 text-xl font-bold leading-5">
+            {{ interest.title }}
+          </h6>
+          <p class="mb-3 text-sm text-gray-900 prose lg:prose-sm">
+            {{ interest.description }}
+          </p>
+          <nuxt-link
+            :to="'/services/' + interest.id"
+            aria-label=""
+            class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-400 px-4 rounded-md py-1 align-middle hover:text-purple-200 justify-end"
+            >بیشتر</nuxt-link
+          >
         </div>
       </div>
     </div>

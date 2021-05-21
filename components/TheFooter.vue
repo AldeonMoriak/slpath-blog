@@ -27,7 +27,7 @@
       >
         2021 © تانی آنلاین —
         <a
-          href="https://twitter.com/knyttneve"
+          href="https://twitter.com/aldeonmoriak"
           class="text-gray-600 mr-1"
           rel="noopener noreferrer"
           target="_blank"

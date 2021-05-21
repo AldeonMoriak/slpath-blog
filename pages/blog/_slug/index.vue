@@ -32,7 +32,8 @@
       <div v-else>
         <writer-card
           v-if="posts"
-          :post="{
+          :writer="{
+            username: `${posts[0].admin.username}`,
             name: `${posts[0].admin.name}`,
             alt: `عکس
           ${posts[0].admin.name}`,
@@ -68,7 +69,8 @@
           <writer-card
             v-if="posts"
             class="w-52"
-            :post="{
+            :writer="{
+              username: `${posts[0].admin.username}`,
               name: `${posts[0].admin.name}`,
               alt: `عکس
           ${posts[0].admin.name}`,

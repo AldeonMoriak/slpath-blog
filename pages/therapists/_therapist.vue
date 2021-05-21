@@ -92,8 +92,7 @@ export default {
             },
             {
               name: 'twitter:image',
-              content:
-                'http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg',
+              content: `${this.$axios.defaults.baseURL}/image/${this.therapist.profilePictureThumbnailUrl}`,
             },
           ],
         }

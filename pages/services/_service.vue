@@ -71,7 +71,8 @@
           <writer-card
             :key="interest.therapists[index].id"
             class="w-52"
-            :post="{
+            :writer="{
+              username: `${interest.therapists[index].username}`,
               name: `${interest.therapists[index].name}`,
               alt: `عکس
           ${interest.therapists[index].name}`,
@@ -126,7 +127,7 @@
         </div>
         <p
           v-if="interest.therapists && interest.therapists.length > 0"
-          class="font-medium text-purple-600 cursor-pointer text-2xl text-center bg-purple-300 rounded-md mx-auto md:hidden"
+          class="shadow-lg py-2 font-medium text-purple-600 cursor-pointer text-2xl text-center bg-purple-300 rounded-md mx-auto md:hidden"
           @click="$scrollTo('#therapists')"
         >
           درمانگران مرتبط
@@ -204,10 +205,10 @@
         <transition name="fade" mode="out-in">
           <writer-card
             :key="interest.therapists[index].id"
-            :post="{
+            :writer="{
+              username: `${interest.therapists[index].username}`,
               name: `${interest.therapists[index].name}`,
-              alt: `عکس
-          ${interest.therapists[index].name}`,
+              alt: `عکس ${interest.therapists[index].name}`,
               image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilePictureThumbnailUrl}`,
               description: `${interest.therapists[index].description}`,
             }"
