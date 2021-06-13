@@ -1,5 +1,29 @@
 <template>
+  <div v-if="noData">
+    <h1
+      class="text-center font-vazir text-purple-600 mt-10 text-2xl sm:text-4xl"
+      dir="rtl"
+    >
+      صفحه در حال ساخت می باشد
+    </h1>
+    <div class="mx-auto text-center w-sm font-vazir text-purple-600 p-3 mt-5">
+      <nuxt-link
+        to="/"
+        class="hover:(text-purple-800, bg-purple-200) rounded p-5"
+        >صفحه اصلی</nuxt-link
+      >
+    </div>
+    <lottie-player
+      class="mx-auto h-md"
+      autoplay
+      loop
+      src="/animations/not-found.json"
+      speed="1"
+      debug
+    ></lottie-player>
+  </div>
   <div
+    v-else
     dir="rtl"
     class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 font-vazir"
   >
@@ -87,13 +111,16 @@ export default {
   data() {
     return {
       interests: [],
+      noData: false,
     }
   },
   async fetch() {
     const data = await fetch(
       `${this.$axios.defaults.baseURL}/categories/getAll`
     ).then((res) => res.json())
-    this.interests = data
+    if (data && data.length > 0) {
+      this.interests = data
+    } else this.noData = true
   },
 }
 </script>

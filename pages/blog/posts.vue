@@ -1,5 +1,28 @@
 <template>
-  <main class="max-w-2xl lg:max-w-4xl mx-auto px-6 font-vazir" dir="rtl">
+  <div v-if="noData">
+    <h1
+      class="text-center font-vazir text-purple-600 mt-10 text-2xl sm:text-4xl"
+      dir="rtl"
+    >
+      هنوز مطلبی در این صفحه قرار نگرفته است.
+    </h1>
+    <div class="mx-auto text-center w-sm font-vazir text-purple-600 p-3 mt-5">
+      <nuxt-link
+        to="/"
+        class="hover:(text-purple-800, bg-purple-200) rounded p-5"
+        >صفحه اصلی</nuxt-link
+      >
+    </div>
+    <lottie-player
+      class="mx-auto h-md"
+      autoplay
+      loop
+      src="/animations/blogger.json"
+      speed="1"
+      debug
+    ></lottie-player>
+  </div>
+  <main v-else class="max-w-2xl lg:max-w-4xl mx-auto px-6 font-vazir" dir="rtl">
     <article class="grid md:grid-cols-3 md:gap-16">
       <div class="hidden md:block">
         <aside
@@ -54,6 +77,7 @@ export default {
       page: 1,
       limit: 10,
       totalCount: 0,
+      noData: false,
     }
   },
   async fetch() {
@@ -64,8 +88,10 @@ export default {
       const posts = await fetch(
         `${this.$axios.defaults.baseURL}/articles/getAll?page=${this.page}&limit=${this.limit}`
       ).then((res) => res.json())
-      this.posts.push(...posts.data)
-      if (posts.data && posts.data.length > 0) this.page++
+      if (posts.data && posts.data.length > 0) {
+        this.page++
+        this.posts.push(...posts.data)
+      } else this.noData = true
       this.totalCount = posts.totalCount
     },
   },

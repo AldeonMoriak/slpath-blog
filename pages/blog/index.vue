@@ -1,5 +1,28 @@
 <template>
-  <div dir="rtl" class="font-vazir">
+  <div v-if="noData">
+    <h1
+      class="text-center font-vazir text-purple-600 mt-10 text-2xl sm:text-4xl"
+      dir="rtl"
+    >
+      هنوز مطلبی در این صفحه قرار نگرفته است.
+    </h1>
+    <div class="mx-auto text-center w-sm font-vazir text-purple-600 p-3 mt-5">
+      <nuxt-link
+        to="/"
+        class="hover:(text-purple-800, bg-purple-200) rounded p-5"
+        >صفحه اصلی</nuxt-link
+      >
+    </div>
+    <lottie-player
+      class="mx-auto h-md"
+      autoplay
+      loop
+      src="/animations/blogger.json"
+      speed="1"
+      debug
+    ></lottie-player>
+  </div>
+  <div v-else dir="rtl" class="font-vazir">
     <div
       class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
     >
@@ -146,13 +169,18 @@ export default {
     return {
       posts: [],
       favs: [],
+      noData: false,
     }
   },
   async fetch() {
     const data = await fetch(
       `${this.$axios.defaults.baseURL}/articles/getAll?page=1&limit=3`
     ).then((res) => res.json())
-    this.posts = data.data
+    if (data.data && data.data.length > 0) {
+      this.posts = data.data
+    } else {
+      this.noData = true
+    }
 
     const favs = await fetch(
       `${this.$axios.defaults.baseURL}/articles/getAllFavs?page=1&limit=3`

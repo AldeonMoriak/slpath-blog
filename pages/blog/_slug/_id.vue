@@ -81,8 +81,8 @@
           :href="post.referenceUrl"
           target="_blank"
           >لینک مرجع
-          <div class="tooltip text-left">
-            {{ post.referenceUrl }}
+          <div dir="ltr" class="tooltip text-left">
+            {{ url }}
           </div>
         </a>
       </article>
@@ -106,6 +106,7 @@
 <script>
 import BlogComment from '~/components/BlogComment.vue'
 import BlogInsertComment from '~/components/BlogInsertComment.vue'
+import URLfix from '~/helpers/urlfix'
 export default {
   name: 'BlogPost',
   components: { BlogInsertComment, BlogComment },
@@ -120,6 +121,11 @@ export default {
       `${this.$axios.defaults.baseURL}/articles/getPost/${this.$route.params.id}`
     ).then((res) => res.json())
     this.post = data
+  },
+  computed: {
+    url() {
+      return URLfix(this.post.referenceUrl)
+    },
   },
   methods: {
     replyHandler(id) {
