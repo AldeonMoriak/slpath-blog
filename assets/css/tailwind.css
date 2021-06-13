@@ -3,28 +3,13 @@
 }
 
 .tooltip {
-  @apply invisible absolute p-1 rounded border border-gray-200 bg-gray-100 shadow-lg ml-4 text-sm transition-opacity duration-200;
+  @apply opacity-0 absolute p-1 rounded border border-gray-200 bg-gray-100 shadow-lg ml-4 text-sm transition-opacity duration-200;
 }
 
 .has-tooltip:hover .tooltip {
-  @apply visible z-50;
+  @apply opacity-100 z-50;
 }
 
-.prose ol > li::before {
-  @apply -right-5;
-}
-.prose ol > li::marker {
-  @apply list-none;
-}
-
-.prose ul > li::marker {
-  @apply list-none;
-}
-
-
-.prose-xl ul > li::before {
-  @apply -right-5;
-}
 
 .fade-enter-active,
 .fade-leave-active {

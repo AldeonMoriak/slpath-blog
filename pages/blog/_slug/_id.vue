@@ -1,7 +1,10 @@
 <template>
   <div class="max-w-2xl mx-auto">
     <div v-if="$fetchState.pending" class="container px-4 py-14 mx-auto">
-      <blog-post-skeleton class="w-full mx-auto mb-8 text-left md:w-3/4" />
+      <blog-post-skeleton
+        class="w-full mx-auto mb-8 text-left md:w-3/4"
+        dir="rtl"
+      />
     </div>
     <div v-else class="w-full mx-auto font-vazir px-4">
       <article
@@ -67,7 +70,7 @@
         <div class="">
           <div
             v-viewer.static
-            class="font-vazir p-5 prose prose-xl rounded-xl ck-content mx-auto selection text-gray-700"
+            class="font-vazir p-5 prose prose-sm sm:prose lg:prose-lg xl:prose-xl 2xl:prose-2xl rounded-xl ck-content mx-auto selection text-gray-700"
             dir="rtl"
             v-html="post.content"
           ></div>
@@ -78,7 +81,9 @@
           :href="post.referenceUrl"
           target="_blank"
           >لینک مرجع
-          <div class="tooltip text-left">{{ post.referenceUrl }}</div>
+          <div class="tooltip text-left">
+            {{ post.referenceUrl }}
+          </div>
         </a>
       </article>
       <blog-comment

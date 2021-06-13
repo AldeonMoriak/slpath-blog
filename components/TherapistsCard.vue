@@ -1,9 +1,15 @@
 <template>
-  <div v-if="$fetchState.pending">در حال بارگزاری</div>
-  <div v-else-if="$fetchState.error">
+  <div v-if="$fetchState.pending" class="text-center text-lg text-purple-400">
+    در حال بارگزاری
+  </div>
+  <div
+    v-else-if="$fetchState.error || therapists.length < 1"
+    class="text-center text-lg text-purple-400"
+  >
     خطایی رخ داده است. لطفا صفحه را رفرش کنید.
   </div>
   <div v-else>
+    <slot></slot>
     <div class="h-2 relative overflow-hidden">
       <div class="w-full h-full bg-gray-200 absolute"></div>
       <div
@@ -43,9 +49,7 @@
         <div
           class="col-start-1 row-start-3 space-y-3 px-4 my-5 sm:mt-2 sm:mb-4"
         >
-          <p
-            class="flex items-center text-gray-600 text-sm font-medium prose prose-sm lg:prose-lg"
-          >
+          <p class="flex items-center prose lg:prose-lg">
             {{ therapists[index].description }}
           </p>
           <div>

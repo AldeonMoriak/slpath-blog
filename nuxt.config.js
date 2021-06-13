@@ -51,7 +51,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'http://192.168.43.199:4000',
+    baseURL: 'http://localhost:4000',
     // baseURL: 'http://192.168.43.199:4000',
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -63,9 +63,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  server: {
-    host: '0.0.0.0',
-  },
+  // server: {
+  //   host: '0.0.0.0',
+  // },
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   },

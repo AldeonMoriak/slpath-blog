@@ -48,24 +48,10 @@
             :class="{ flex: openNav, hidden: !openNav }"
             class="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row transition duration-500 ease-in-out fixed top-0 mt-10 bg-white inset-x-0 md:static md:mt-0 z-50"
           >
-            <nuxt-link
-              to="/"
-              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              >صفحه اصلی</nuxt-link
-            >
-            <nuxt-link
-              to="/blog"
-              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              >مقالات</nuxt-link
-            >
-            <nuxt-link
-              to="/services"
-              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-              >خدمات</nuxt-link
-            >
-            <nuxt-link
-              to="/therapists"
-              class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            <nuxt-link to="/" class="header-item">صفحه اصلی</nuxt-link>
+            <nuxt-link to="/blog" class="header-item">مقالات</nuxt-link>
+            <nuxt-link to="/services" class="header-item">خدمات</nuxt-link>
+            <nuxt-link to="/therapists" class="header-item"
               >درمانگران</nuxt-link
             >
             <!-- <nuxt-link
