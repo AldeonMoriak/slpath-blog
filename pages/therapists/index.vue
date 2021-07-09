@@ -69,7 +69,7 @@
         >
           <img
             class="object-cover w-full h-56 md:h-64 xl:h-80"
-            :src="`${$axios.defaults.baseURL}/image/${therapist.profilePictureimageUrl}`"
+            :src="`${$axios.defaults.baseURL}/image/${therapist.profilepictureUrl}`"
             :alt="therapist.name"
           />
           <div

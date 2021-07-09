@@ -92,7 +92,7 @@ export default {
             },
             {
               name: 'twitter:image',
-              content: `${this.$axios.defaults.baseURL}/image/${this.therapist.profilePictureimageUrl}`,
+              content: `${this.$axios.defaults.baseURL}/image/${this.therapist.profilepictureUrl}`,
             },
           ],
         }
