@@ -40,7 +40,7 @@
             <div class="flex items-center text-gray-700">
               <nuxt-link :to="`/blog/${post.admin.username}`">
                 <img
-                  :src="`${$axios.defaults.baseURL}/image/${post.admin.profilepictureUrl}`"
+                  :src="`${$axios.defaults.baseURL}/image/${post.admin.profilePictureUrl}`"
                   class="object-cover w-14 h-14 rounded-full shadow-sm text-sm mx-auto"
                   :alt="`عکس ${post.admin.name}`"
                 />

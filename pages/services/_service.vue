@@ -76,7 +76,7 @@
               name: `${interest.therapists[index].name}`,
               alt: `عکس
           ${interest.therapists[index].name}`,
-              image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilepictureUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilePictureUrl}`,
               description: `${interest.therapists[index].description}`,
             }"
             @mouse-over-event="pauseHandler"
@@ -209,7 +209,7 @@
               username: `${interest.therapists[index].username}`,
               name: `${interest.therapists[index].name}`,
               alt: `عکس ${interest.therapists[index].name}`,
-              image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilepictureUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilePictureUrl}`,
               description: `${interest.therapists[index].description}`,
             }"
             @mouse-over-event="pauseHandler"

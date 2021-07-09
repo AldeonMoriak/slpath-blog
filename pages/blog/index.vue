@@ -85,7 +85,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilepictureUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"
@@ -151,7 +151,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilepictureUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"
