@@ -72,14 +72,14 @@
             </div>
             <div class="relative hidden md:block">
               <img
-                :src="`${$axios.defaults.baseURL}/image/${therapists[secondOne].profilePictureThumbnailUrl}`"
+                :src="`${$axios.defaults.baseURL}/image/${therapists[secondOne].profilePictureimageUrl}`"
                 :alt="therapists[secondOne].title"
                 class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow-inner"
               />
             </div>
             <div class="relative hidden md:block">
               <img
-                :src="`${$axios.defaults.baseURL}/image/${therapists[thirdOne].profilePictureThumbnailUrl}`"
+                :src="`${$axios.defaults.baseURL}/image/${therapists[thirdOne].profilePictureimageUrl}`"
                 :alt="therapists[thirdOne].title"
                 class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow"
               />

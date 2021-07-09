@@ -47,7 +47,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureThumbnailUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureimageUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"

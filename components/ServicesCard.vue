@@ -56,14 +56,14 @@
             </div>
             <div class="relative hidden md:block">
               <img
-                :src="`${$axios.defaults.baseURL}/categories/image/${interests[secondOne].thumbnailUrl}`"
+                :src="`${$axios.defaults.baseURL}/categories/image/${interests[secondOne].imageUrl}`"
                 :alt="interests[secondOne].title"
                 class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow-inner"
               />
             </div>
             <div class="relative hidden md:block">
               <img
-                :src="`${$axios.defaults.baseURL}/categories/image/${interests[thirdOne].thumbnailUrl}`"
+                :src="`${$axios.defaults.baseURL}/categories/image/${interests[thirdOne].imageUrl}`"
                 :alt="interests[thirdOne].title"
                 class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow"
               />

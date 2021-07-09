@@ -77,7 +77,7 @@
           :key="fetchedPost.id"
           :post="{
             excerpt: fetchedPost.description,
-            image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.thumbnailUrl}`,
+            image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.imageUrl}`,
             link: `blog/${fetchedPost.admin.username}/${fetchedPost.id}`,
             date: fetchedPost.createdDateTime,
             views: fetchedPost.views,
@@ -85,7 +85,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureThumbnailUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureimageUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"
@@ -143,7 +143,7 @@
           :key="fetchedPost.id"
           :post="{
             excerpt: fetchedPost.description,
-            image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.thumbnailUrl}`,
+            image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.imageUrl}`,
             link: `blog/${fetchedPost.admin.username}/${fetchedPost.id}`,
             date: fetchedPost.createdDateTime,
             views: fetchedPost.views,
@@ -151,7 +151,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureThumbnailUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureimageUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"

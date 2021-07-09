@@ -37,7 +37,7 @@
             name: `${posts[0].admin.name}`,
             alt: `عکس
           ${posts[0].admin.name}`,
-            image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureThumbnailUrl}`,
+            image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureimageUrl}`,
             description: `${posts[0].admin.description}`,
           }"
         >
@@ -74,7 +74,7 @@
               name: `${posts[0].admin.name}`,
               alt: `عکس
           ${posts[0].admin.name}`,
-              image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureThumbnailUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureimageUrl}`,
               description: `${posts[0].admin.description}`,
             }"
           >
@@ -116,7 +116,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureThumbnailUrl}`,
+              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureimageUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"
