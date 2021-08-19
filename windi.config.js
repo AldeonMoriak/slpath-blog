@@ -6,7 +6,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   shortcuts: {
     'header-item':
-      'px-4 py-2 mt-2 text-sm md:text-md lg:text-lg 2xl:text-xl font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline,',
+      'px-4 py-2 mt-2 text-sm md:text-md font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-purple-900 focus:text-purple-900 hover:bg-purple-200 focus:bg-purple-200 focus:outline-none focus:shadow-outline,',
+    'active-header-item': 'text-lg bg-purple-200 text-purple-900',
   },
   theme: {
     fontFamily: {

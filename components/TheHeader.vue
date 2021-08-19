@@ -2,7 +2,7 @@
   <div class="shadow-md z-50" dir="rtl">
     <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 font-vazir">
       <div
-        class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800"
+        class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 h-70px"
       >
         <div
           class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
@@ -13,9 +13,15 @@
           >
             <nuxt-link
               to="/"
-              class="text-lg font-semibold tracking-widest text-purple-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:bg-gray-200 py-2"
-              >تانی آنلاین</nuxt-link
-            >
+              class="text-lg font-semibold tracking-widest text-purple-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:bg-purple-200 p-2"
+              >تانی آنلاین
+
+              <h1
+                class="text-xl leading-none font-medium tracking-tight text-gray-900 text-right"
+              >
+                جامعه آنلاین توانبخشی ایران
+              </h1>
+            </nuxt-link>
             <button
               class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
               @click.stop="
@@ -45,13 +51,41 @@
             </button>
           </div>
           <nav
-            :class="{ flex: openNav, hidden: !openNav }"
-            class="flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row transition duration-500 ease-in-out fixed top-0 mt-10 bg-white inset-x-0 md:static md:mt-0 z-50"
+            :class="[
+              openNav ? 'flex' : 'hidden',
+              'flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row md:content-center md:items-center transition duration-500 ease-in-out fixed top-0 mt-18 bg-white inset-x-0 md:static md:mt-0 z-50 shadow-md md:shadow-none',
+            ]"
           >
-            <nuxt-link to="/" class="header-item">صفحه اصلی</nuxt-link>
-            <nuxt-link to="/blog" class="header-item">مقالات</nuxt-link>
-            <nuxt-link to="/services" class="header-item">خدمات</nuxt-link>
-            <nuxt-link to="/therapists" class="header-item"
+            <nuxt-link
+              to="/"
+              :class="[
+                'header-item',
+                pageUrl === '/' ? 'active-header-item' : '',
+              ]"
+              >صفحه اصلی</nuxt-link
+            >
+            <nuxt-link
+              to="/blog"
+              :class="[
+                'header-item',
+                pageUrl.includes('/blog') ? 'active-header-item' : '',
+              ]"
+              >مقالات</nuxt-link
+            >
+            <nuxt-link
+              to="/services"
+              :class="[
+                'header-item',
+                pageUrl.includes('/services') ? 'active-header-item' : '',
+              ]"
+              >خدمات</nuxt-link
+            >
+            <nuxt-link
+              to="/therapists"
+              :class="[
+                'header-item',
+                pageUrl.includes('/therapists') ? 'active-header-item' : '',
+              ]"
               >درمانگران</nuxt-link
             >
             <!-- <nuxt-link
@@ -192,6 +226,11 @@ export default {
       open: false,
       openNav: false,
     }
+  },
+  computed: {
+    pageUrl() {
+      return this.$route.fullPath
+    },
   },
   methods: {
     close() {

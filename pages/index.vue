@@ -1,6 +1,6 @@
 <template>
   <div dir="rtl" class="font-vazir px-4">
-    <h1
+    <!-- <h1
       class="text-4xl sm:text-6xl lg:text-7xl leading-none font-medium tracking-tight text-gray-900 mt-10 mb-8 sm:mt-14 sm:mb-10 text-right"
     >
       جامعه آنلاین توانبخشی ایران
@@ -9,9 +9,9 @@
       class="max-w-screen-lg text-lg sm:text-2xl sm:leading-10 font-medium mb-10 sm:mb-11 text-right text-gray-400"
     >
       تفاوت میان دانش و تجارت
-    </p>
+    </p> -->
     <!-- <p class="text-lg font-light text-gray-600">خدمات وبسایت</p> -->
-    <div>
+    <div class="mt-40">
       <services-card ref="services">
         <div class="flex flex-col w-full sm:max-w-sm lg:mx-0">
           <div class="flex justify-between items-end">

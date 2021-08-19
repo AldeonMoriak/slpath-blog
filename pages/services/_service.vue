@@ -136,7 +136,7 @@
         <div class="">
           <div
             v-viewer.static
-            class="list-disc font-vazir p-5 rounded-xl ck-content prose lg:prose-xl mx-auto selection"
+            class="font-vazir p-5 prose prose-sm sm:prose lg:prose-lg xl:prose-xl rounded-xl ck-content mx-auto selection text-gray-700"
             dir="rtl"
             v-html="interest.content"
           ></div>

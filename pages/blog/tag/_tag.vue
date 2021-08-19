@@ -14,7 +14,7 @@
         </p>
         <aside
           v-else
-          class="sticky top-14 space-y-1 font-bold tracking-wide my-14 text-center"
+          class="sticky top-24 space-y-1 font-bold tracking-wide my-14 text-center"
         >
           <span class="text-gray-500 font-thin block"> مقالاتی که تگ </span>
           <div
