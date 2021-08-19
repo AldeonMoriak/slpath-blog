@@ -51,7 +51,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'http://localhost:4000',
+    // baseURL: 'http://localhost:5000',
     baseURL: 'https://slpath-backedn.herokuapp.com',
     // baseURL: 'http://192.168.43.199:4000',
   },

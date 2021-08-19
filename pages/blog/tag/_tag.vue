@@ -39,7 +39,7 @@
           :key="fetchedPost.id"
           :post="{
             excerpt: fetchedPost.description,
-            image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.imageUrl}`,
+            image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${fetchedPost.imageUrl}`,
             link: `/blog/${fetchedPost.admin.username}/${fetchedPost.id}`,
             date: fetchedPost.createdDateTime,
             views: fetchedPost.views,
@@ -47,7 +47,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureUrl}`,
+              image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${fetchedPost.admin.profilePictureThumbnailUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"

@@ -37,7 +37,7 @@
             name: `${posts[0].admin.name}`,
             alt: `عکس
           ${posts[0].admin.name}`,
-            image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureUrl}`,
+            image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${posts[0].admin.profilePictureThumbnailUrl}`,
             description: `${posts[0].admin.description}`,
           }"
         >
@@ -74,7 +74,7 @@
               name: `${posts[0].admin.name}`,
               alt: `عکس
           ${posts[0].admin.name}`,
-              image: `${$axios.defaults.baseURL}/image/${posts[0].admin.profilePictureUrl}`,
+              image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${posts[0].admin.profilePictureThumbnailUrl}`,
               description: `${posts[0].admin.description}`,
             }"
           >
@@ -108,7 +108,7 @@
           :key="fetchedPost.id"
           :post="{
             excerpt: fetchedPost.description,
-            image: `${$axios.defaults.baseURL}/articles/image/${fetchedPost.imageUrl}`,
+            image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${fetchedPost.imageUrl}`,
             link: `/blog/${fetchedPost.admin.username}/${fetchedPost.id}`,
             date: fetchedPost.createdDateTime,
             views: fetchedPost.views,
@@ -116,7 +116,7 @@
             title: fetchedPost.title,
             author: {
               name: fetchedPost.admin.name,
-              image: `${$axios.defaults.baseURL}/image/${fetchedPost.admin.profilePictureUrl}`,
+              image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${fetchedPost.admin.profilePictureThumbnailUrl}`,
               link: `/blog/${fetchedPost.admin.username}`,
             },
           }"

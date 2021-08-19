@@ -16,7 +16,7 @@
       >
         <div class="mb-8 mx-auto">
           <img
-            :src="`${$axios.defaults.baseURL}/articles/image/${post.imageUrl}`"
+            :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${post.imageUrl}`"
             class="object-cover w-full h-64 bg-center rounded-t-lg"
             :alt="post.title"
           />
@@ -40,7 +40,7 @@
             <div class="flex items-center text-gray-700">
               <nuxt-link :to="`/blog/${post.admin.username}`">
                 <img
-                  :src="`${$axios.defaults.baseURL}/image/${post.admin.profilePictureUrl}`"
+                  :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${post.admin.profilePictureThumbnailUrl}`"
                   class="object-cover w-14 h-14 rounded-full shadow-sm text-sm mx-auto"
                   :alt="`عکس ${post.admin.name}`"
                 />

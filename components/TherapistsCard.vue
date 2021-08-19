@@ -65,21 +65,21 @@
           <div class="w-full grid grid-cols-3 grid-rows-2 gap-2">
             <div class="relative col-span-3 row-span-2 md:col-span-2">
               <img
-                :src="`${$axios.defaults.baseURL}/image/${therapists[index].profilePictureUrl}`"
+                :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapists[index].profilePictureUrl}`"
                 :alt="therapists[index].title"
                 class="absolute inset-0 w-full h-full object-cover bg-gray-100 sm:rounded-lg transition-all ease-out duration-1000 shadow-inner"
               />
             </div>
             <div class="relative hidden md:block">
               <img
-                :src="`${$axios.defaults.baseURL}/image/${therapists[secondOne].profilePictureUrl}`"
+                :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapists[secondOne].profilePictureThumbnailUrl}`"
                 :alt="therapists[secondOne].title"
                 class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow-inner"
               />
             </div>
             <div class="relative hidden md:block">
               <img
-                :src="`${$axios.defaults.baseURL}/image/${therapists[thirdOne].profilePictureUrl}`"
+                :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapists[thirdOne].profilePictureUrl}`"
                 :alt="therapists[thirdOne].title"
                 class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow"
               />

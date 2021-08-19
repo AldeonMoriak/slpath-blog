@@ -76,7 +76,7 @@
               name: `${interest.therapists[index].name}`,
               alt: `عکس
           ${interest.therapists[index].name}`,
-              image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilePictureUrl}`,
+              image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${interest.therapists[index].profilePictureUrl}`,
               description: `${interest.therapists[index].description}`,
             }"
             @mouse-over-event="pauseHandler"
@@ -109,7 +109,7 @@
           <img
             :src="
               interest
-                ? `${$axios.defaults.baseURL}/categories/image/${interest.imageUrl}`
+                ? `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${interest.imageUrl}`
                 : null
             "
             class="object-cover w-full h-64 bg-center rounded-t-lg"
@@ -209,7 +209,7 @@
               username: `${interest.therapists[index].username}`,
               name: `${interest.therapists[index].name}`,
               alt: `عکس ${interest.therapists[index].name}`,
-              image: `${$axios.defaults.baseURL}/image/${interest.therapists[index].profilePictureUrl}`,
+              image: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${interest.therapists[index].profilePictureUrl}`,
               description: `${interest.therapists[index].description}`,
             }"
             @mouse-over-event="pauseHandler"

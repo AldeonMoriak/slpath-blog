@@ -92,7 +92,7 @@ export default {
             },
             {
               name: 'twitter:image',
-              content: `${this.$axios.defaults.baseURL}/image/${this.therapist.profilePictureUrl}`,
+              content: `https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${this.therapist.profilePictureUrl}`,
             },
           ],
         }

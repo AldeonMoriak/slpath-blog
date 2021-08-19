@@ -69,7 +69,7 @@
         >
           <img
             class="object-cover w-full h-56 md:h-64 xl:h-80"
-            :src="`${$axios.defaults.baseURL}/image/${therapist.profilePictureUrl}`"
+            :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapist.profilePictureThumbnailUrl}`"
             :alt="therapist.name"
           />
           <div
