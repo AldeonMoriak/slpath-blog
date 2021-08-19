@@ -197,7 +197,9 @@ export default {
   },
   computed: {
     host() {
-      return process.env.BASEURL // window.location.protocol + '//' + window.location.host
+      return !process.client
+        ? process.env.baseUrl
+        : window.location.protocol + '//' + window.location.host
     },
     imageUrl() {
       return `url(https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${this.therapist.profilePictureUrl})`
