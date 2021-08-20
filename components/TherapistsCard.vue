@@ -13,22 +13,51 @@
     <div class="h-2 relative overflow-hidden">
       <div class="w-full h-full bg-gray-200 absolute"></div>
       <div
-        class="h-full bg-purple-500 relative transition-all ease-out duration-1000"
+        class="
+          h-full
+          bg-purple-500
+          relative
+          transition-all
+          ease-linear
+          duration-1000
+        "
         :class="width"
       ></div>
     </div>
     <transition mode="out-in" name="fade">
       <div
         :key="therapists[index].id"
-        class="grid grid-cols-1 sm:grid-cols-2 sm:px-8 sm:py-12 sm:gap-x-8 md:py-16 bg-white"
+        class="
+          grid grid-cols-1
+          sm:grid-cols-2 sm:px-8 sm:py-12 sm:gap-x-8
+          md:py-16
+          bg-white
+        "
         @mouseover="pauseHandler"
         @mouseout="continueInterval"
       >
         <div
-          class="relative z-10 col-start-1 row-start-1 px-4 pt-40 pb-3 bg-gradient-to-t from-black sm:bg-none"
+          class="
+            relative
+            z-10
+            col-start-1
+            row-start-1
+            px-4
+            pt-40
+            pb-3
+            bg-gradient-to-t
+            from-black
+            sm:bg-none
+          "
         >
           <h2
-            class="text-xl font-semibold text-white sm:text-2xl sm:leading-7 sm:text-black md:text-3xl"
+            class="
+              text-xl
+              font-semibold
+              text-white
+              sm:text-2xl sm:leading-7 sm:text-black
+              md:text-3xl
+            "
           >
             {{ therapists[index].name }}
           </h2>
@@ -38,7 +67,18 @@
             <div
               v-for="interest in therapists[index].categories"
               :key="interest.id"
-              class="text-purple-600 bg-purple-200 my-1 px-2 ml-1 rounded-full text-base hover:bg-purple-300 max-h-12 mr-1"
+              class="
+                text-purple-600
+                bg-purple-200
+                my-1
+                px-2
+                ml-1
+                rounded-full
+                text-base
+                hover:bg-purple-300
+                max-h-12
+                mr-1
+              "
             >
               <nuxt-link :to="'/services/' + interest.id">
                 {{ interest.title }}
@@ -55,7 +95,16 @@
           <div>
             <nuxt-link
               :to="'/therapists/' + therapists[index].username"
-              class="bg-purple-100 text-purple-700 text-base font-semibold px-6 py-1 mt-10 rounded-lg hover:bg-purple-300 hover:text-purple-900"
+              class="
+                bg-purple-100
+                text-purple-700 text-base
+                font-semibold
+                px-6
+                py-1
+                mt-10
+                rounded-lg
+                hover:bg-purple-300 hover:text-purple-900
+              "
             >
               اطلاعات تماس
             </nuxt-link>
@@ -67,21 +116,51 @@
               <img
                 :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapists[index].profilePictureUrl}`"
                 :alt="therapists[index].title"
-                class="absolute inset-0 w-full h-full object-cover bg-gray-100 sm:rounded-lg transition-all ease-out duration-1000 shadow-inner"
+                class="
+                  absolute
+                  inset-0
+                  w-full
+                  h-full
+                  object-cover
+                  bg-gray-100
+                  sm:rounded-lg
+                  transition-all
+                  ease-out
+                  duration-1000
+                  shadow-inner
+                "
               />
             </div>
             <div class="relative hidden md:block">
               <img
                 :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapists[secondOne].profilePictureThumbnailUrl}`"
                 :alt="therapists[secondOne].title"
-                class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow-inner"
+                class="
+                  absolute
+                  inset-0
+                  w-full
+                  h-full
+                  object-cover
+                  rounded-lg
+                  bg-gray-100
+                  shadow-inner
+                "
               />
             </div>
             <div class="relative hidden md:block">
               <img
                 :src="`https://kbodliatjlwcgvcbarwj.supabase.in/storage/v1/object/public/tani-images/${therapists[thirdOne].profilePictureUrl}`"
                 :alt="therapists[thirdOne].title"
-                class="absolute inset-0 w-full h-full object-cover rounded-lg bg-gray-100 shadow"
+                class="
+                  absolute
+                  inset-0
+                  w-full
+                  h-full
+                  object-cover
+                  rounded-lg
+                  bg-gray-100
+                  shadow
+                "
               />
             </div>
           </div>

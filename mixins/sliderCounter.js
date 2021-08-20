@@ -74,7 +74,7 @@ export default {
             this.clearBarInterval()
           }
         }
-      }, 1000)
+      }, 900)
     },
     clearBarInterval() {
       clearInterval(this.progressInterval)

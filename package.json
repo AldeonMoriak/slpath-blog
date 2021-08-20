@@ -15,6 +15,7 @@
     "@lottiefiles/lottie-player": "^1.0.3",
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/pwa": "^3.3.5",
+    "@windicss/animations": "^1.0.8",
     "core-js": "^3.8.3",
     "nuxt": "^2.15.6",
     "v-viewer": "^1.5.1",

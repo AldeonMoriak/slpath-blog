@@ -2,10 +2,23 @@
   <div class="shadow-md z-50" dir="rtl">
     <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 font-vazir">
       <div
-        class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 h-70px"
+        class="
+          w-full
+          text-gray-700
+          bg-white
+          dark-mode:text-gray-200 dark-mode:bg-gray-800
+          h-70px
+        "
       >
         <div
-          class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
+          class="
+            flex flex-col
+            max-w-screen-xl
+            px-4
+            mx-auto
+            md:items-center md:justify-between md:flex-row md:px-6
+            lg:px-8
+          "
         >
           <div
             v-on-clickaway="closeNav"
@@ -13,17 +26,39 @@
           >
             <nuxt-link
               to="/"
-              class="text-lg font-semibold tracking-widest text-purple-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline hover:bg-purple-200 p-2"
+              class="
+                text-lg
+                font-semibold
+                tracking-widest
+                text-purple-900
+                uppercase
+                rounded-lg
+                dark-mode:text-white
+                focus:outline-none focus:shadow-outline
+                hover:bg-purple-200
+                p-2
+                mt-1
+              "
               >تانی آنلاین
 
               <h1
-                class="text-xl leading-none font-medium tracking-tight text-gray-900 text-right"
+                class="
+                  text-xl
+                  leading-none
+                  font-medium
+                  tracking-tight
+                  text-gray-900 text-right
+                "
               >
                 جامعه آنلاین توانبخشی ایران
               </h1>
             </nuxt-link>
             <button
-              class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+              class="
+                rounded-lg
+                md:hidden
+                focus:outline-none focus:shadow-outline
+              "
               @click.stop="
                 openNav = !openNav
                 open = false

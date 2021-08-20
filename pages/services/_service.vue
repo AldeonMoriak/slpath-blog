@@ -1,7 +1,14 @@
 <template>
   <div
     dir="rtl"
-    class="max-w-3xl lg:max-w-4xl mx-auto grid md:grid-cols-4 md:gap-16 font-vazir"
+    class="
+      max-w-3xl
+      lg:max-w-4xl
+      mx-auto
+      grid
+      md:grid-cols-4 md:gap-16
+      font-vazir
+    "
   >
     <div
       v-if="interest.therapists && interest.therapists.length > 0"
@@ -25,7 +32,16 @@
           <p>درمانگران مرتبط</p>
           <div>
             <div
-              class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+              class="
+                rounded-sm
+                h-6
+                w-6
+                text-purple-600
+                bg-purple-200
+                hover:bg-purple-300
+                inline-block
+                cursor-pointer
+              "
               @click="next"
             >
               <svg
@@ -42,7 +58,16 @@
               </svg>
             </div>
             <div
-              class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+              class="
+                rounded-sm
+                h-6
+                w-6
+                text-purple-600
+                bg-purple-200
+                hover:bg-purple-300
+                inline-block
+                cursor-pointer
+              "
               @click="previous"
             >
               <svg
@@ -63,7 +88,14 @@
         <div class="h-1 w-52 relative overflow-hidden">
           <div class="w-full h-full bg-gray-200 absolute"></div>
           <div
-            class="h-full bg-purple-500 relative transition-all ease-out duration-1000"
+            class="
+              h-full
+              bg-purple-500
+              relative
+              transition-all
+              ease-linear
+              duration-1000
+            "
             :class="width"
           ></div>
         </div>
@@ -85,7 +117,20 @@
             <nuxt-link
               :to="'/therapists/' + interest.therapists[index].username"
               aria-label=""
-              class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
+              class="
+                inline-flex
+                items-center
+                font-semibold
+                transition-colors
+                duration-200
+                bg-purple-200
+                text-purple-600
+                hover:bg-purple-300 hover:text-purple-900
+                justify-end
+                p-2
+                rounded-md
+                mt-2
+              "
               >بیشتر</nuxt-link
             >
           </writer-card>
@@ -117,7 +162,16 @@
           />
           <div class="py-0.5 pr-1">
             <h1
-              class="mb-3 mt-2 mr-3 text-xl font-black leading-tight text-gray-900 md:text-2xl"
+              class="
+                mb-3
+                mt-2
+                mr-3
+                text-xl
+                font-black
+                leading-tight
+                text-gray-900
+                md:text-2xl
+              "
               itemprop="headline"
               :title="interest.title"
             >
@@ -127,7 +181,18 @@
         </div>
         <p
           v-if="interest.therapists && interest.therapists.length > 0"
-          class="shadow-lg py-2 font-medium text-purple-600 cursor-pointer text-2xl text-center bg-purple-300 rounded-md mx-auto md:hidden"
+          class="
+            shadow-lg
+            py-2
+            font-medium
+            text-purple-600
+            cursor-pointer
+            text-2xl text-center
+            bg-purple-300
+            rounded-md
+            mx-auto
+            md:hidden
+          "
           @click="$scrollTo('#therapists')"
         >
           درمانگران مرتبط
@@ -136,7 +201,19 @@
         <div class="">
           <div
             v-viewer.static
-            class="font-vazir p-5 prose prose-sm sm:prose lg:prose-lg xl:prose-xl rounded-xl ck-content mx-auto selection text-gray-700"
+            class="
+              font-vazir
+              p-5
+              prose prose-sm
+              sm:prose
+              lg:prose-lg
+              xl:prose-xl
+              rounded-xl
+              ck-content
+              mx-auto
+              selection
+              text-gray-700
+            "
             dir="rtl"
             v-html="interest.content"
           ></div>
@@ -160,7 +237,16 @@
           <p>درمانگران مرتبط</p>
           <div>
             <div
-              class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+              class="
+                rounded-sm
+                h-6
+                w-6
+                text-purple-600
+                bg-purple-200
+                hover:bg-purple-300
+                inline-block
+                cursor-pointer
+              "
               @click="next"
             >
               <svg
@@ -177,7 +263,16 @@
               </svg>
             </div>
             <div
-              class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+              class="
+                rounded-sm
+                h-6
+                w-6
+                text-purple-600
+                bg-purple-200
+                hover:bg-purple-300
+                inline-block
+                cursor-pointer
+              "
               @click="previous"
             >
               <svg
@@ -198,7 +293,14 @@
         <div class="h-1 w-full relative overflow-hidden">
           <div class="w-full h-full bg-gray-200 absolute"></div>
           <div
-            class="h-full bg-purple-500 relative transition-all ease-out duration-1000"
+            class="
+              h-full
+              bg-purple-500
+              relative
+              transition-all
+              ease-linear
+              duration-1000
+            "
             :class="width"
           ></div>
         </div>
@@ -218,7 +320,20 @@
             <nuxt-link
               :to="'/therapists/' + interest.therapists[index].username"
               aria-label=""
-              class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
+              class="
+                inline-flex
+                items-center
+                font-semibold
+                transition-colors
+                duration-200
+                bg-purple-200
+                text-purple-600
+                hover:bg-purple-300 hover:text-purple-900
+                justify-end
+                p-2
+                rounded-md
+                mt-2
+              "
               >بیشتر</nuxt-link
             >
           </writer-card>
