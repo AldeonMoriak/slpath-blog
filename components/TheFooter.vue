@@ -4,26 +4,28 @@
       class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
     >
       <a
-        class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+        class="
+          flex
+          title-font
+          font-medium
+          items-center
+          md:justify-start
+          justify-center
+          text-gray-900
+        "
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-          ></path>
-        </svg>
+        <img
+          src="/images/TANI_WHITE.svg"
+          class="w-12 h-12 text-white p-1 bg-purple-500 rounded-full"
+        />
         <span class="mr-3 text-xl">تانی آنلاین</span>
       </a>
       <p
-        class="text-sm text-gray-500 sm:mr-4 sm:pr-4 sm:border-r-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
+        class="
+          text-sm text-gray-500
+          sm:mr-4 sm:pr-4 sm:border-r-2 sm:border-gray-200 sm:py-2 sm:mt-0
+          mt-4
+        "
       >
         2021 © تانی آنلاین —
         <a
@@ -35,7 +37,13 @@
         >
       </p>
       <span
-        class="inline-flex sm:mr-auto sm:mt-0 mt-4 justify-center sm:justify-start"
+        class="
+          inline-flex
+          sm:mr-auto sm:mt-0
+          mt-4
+          justify-center
+          sm:justify-start
+        "
       >
         <a href="facebook" class="text-gray-500">
           <svg

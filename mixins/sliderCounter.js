@@ -46,6 +46,10 @@ export default {
     },
   },
   methods: {
+    doubleNext() {
+      this.next()
+      this.next()
+    },
     next() {
       this.clearBarInterval()
       this.index = this.index === this.lastIndex ? 0 : this.index + 1

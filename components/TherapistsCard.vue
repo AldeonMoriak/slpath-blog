@@ -144,7 +144,9 @@
                   rounded-lg
                   bg-gray-100
                   shadow-inner
+                  cursor-pointer
                 "
+                @click="next"
               />
             </div>
             <div class="relative hidden md:block">
@@ -160,7 +162,9 @@
                   rounded-lg
                   bg-gray-100
                   shadow
+                  cursor-pointer
                 "
+                @click="doubleNext"
               />
             </div>
           </div>
@@ -181,9 +185,12 @@ export default {
     }
   },
   async fetch() {
-    const data = await fetch(
-      `${this.$axios.defaults.baseURL}/getTherapists`
-    ).then((res) => res.json())
+    this.$store.commit('enableLoading')
+    const data = await fetch(`${this.$axios.defaults.baseURL}/getTherapists`)
+      .then((res) => res.json())
+      .finally(() => {
+        this.$store.commit('disableLoading')
+      })
     this.therapists = data
     this.lastIndex = data.length - 1
   },

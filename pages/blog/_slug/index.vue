@@ -44,7 +44,20 @@
           <nuxt-link
             :to="'/therapists/' + posts[0].admin.username"
             aria-label=""
-            class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
+            class="
+              inline-flex
+              items-center
+              font-semibold
+              transition-colors
+              duration-200
+              bg-purple-200
+              text-purple-600
+              hover:bg-purple-300 hover:text-purple-900
+              justify-end
+              p-2
+              rounded-md
+              mt-2
+            "
             >اطلاعات تماس</nuxt-link
           >
         </writer-card>
@@ -81,7 +94,20 @@
             <nuxt-link
               :to="'/therapists/' + posts[0].admin.username"
               aria-label=""
-              class="inline-flex items-center font-semibold transition-colors duration-200 bg-purple-200 text-purple-600 hover:bg-purple-300 hover:text-purple-900 justify-end p-2 rounded-md mt-2"
+              class="
+                inline-flex
+                items-center
+                font-semibold
+                transition-colors
+                duration-200
+                bg-purple-200
+                text-purple-600
+                hover:bg-purple-300 hover:text-purple-900
+                justify-end
+                p-2
+                rounded-md
+                mt-2
+              "
               >اطلاعات تماس</nuxt-link
             >
           </writer-card>
@@ -151,9 +177,14 @@ export default {
   },
   methods: {
     async fetchData() {
+      this.$store.commit('enableLoading')
       const data = await fetch(
         `${this.$axios.defaults.baseURL}/articles/getPosts/${this.$route.params.slug}?page=${this.page}&limit=${this.limit}`
-      ).then((res) => res.json())
+      )
+        .then((res) => res.json())
+        .finally(() => {
+          this.$store.commit('disableLoading')
+        })
       if (data.data && data.data.length > 0) {
         this.page++
         this.posts.push(...data.data)

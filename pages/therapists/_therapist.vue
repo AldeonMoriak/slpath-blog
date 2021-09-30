@@ -60,9 +60,14 @@ export default {
     }
   },
   async fetch() {
+    this.$store.commit('enableLoading')
     const data = await fetch(
       `${this.$axios.defaults.baseURL}/getTherapist/${this.$route.params.therapist}`
-    ).then((res) => res.json())
+    )
+      .then((res) => res.json())
+      .finally(() => {
+        this.$store.commit('disableLoading')
+      })
     if (data.statusCode) {
       this.isError = true
       this.errorCode = data.statusCode

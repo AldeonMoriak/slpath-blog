@@ -16,11 +16,20 @@
         <div class="flex flex-col w-full sm:max-w-sm lg:mx-0">
           <div class="flex justify-between items-end">
             <p class="text-xl font-medium text-gray-600 mb-2 xl:text-2xl">
-              خدمات وبسایت
+              خدمات
             </p>
             <div>
               <div
-                class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+                class="
+                  rounded-sm
+                  h-6
+                  w-6
+                  text-purple-600
+                  bg-purple-200
+                  hover:bg-purple-300
+                  inline-block
+                  cursor-pointer
+                "
                 @click="next"
               >
                 <svg
@@ -37,7 +46,16 @@
                 </svg>
               </div>
               <div
-                class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+                class="
+                  rounded-sm
+                  h-6
+                  w-6
+                  text-purple-600
+                  bg-purple-200
+                  hover:bg-purple-300
+                  inline-block
+                  cursor-pointer
+                "
                 @click="previous"
               >
                 <svg
@@ -56,9 +74,9 @@
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="border-b-2 shadow-md rounded border-purple-900 mb-4"
-          ></div>
+          ></div> -->
         </div>
       </services-card>
     </div>
@@ -67,11 +85,20 @@
         <div class="flex flex-col w-full sm:max-w-sm lg:mx-0">
           <div class="flex justify-between items-end">
             <p class="text-xl font-medium text-gray-600 mb-2 xl:text-2xl">
-              درمانگران وبسایت
+              درمانگران
             </p>
             <div>
               <div
-                class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+                class="
+                  rounded-sm
+                  h-6
+                  w-6
+                  text-purple-600
+                  bg-purple-200
+                  hover:bg-purple-300
+                  inline-block
+                  cursor-pointer
+                "
                 @click="nextTherapist"
               >
                 <svg
@@ -88,7 +115,16 @@
                 </svg>
               </div>
               <div
-                class="rounded-sm h-6 w-6 text-purple-600 bg-purple-200 hover:bg-purple-300 inline-block cursor-pointer"
+                class="
+                  rounded-sm
+                  h-6
+                  w-6
+                  text-purple-600
+                  bg-purple-200
+                  hover:bg-purple-300
+                  inline-block
+                  cursor-pointer
+                "
                 @click="previousTherapist"
               >
                 <svg
@@ -107,11 +143,14 @@
             </div>
           </div>
 
-          <div
+          <!-- <div
             class="border-b-2 shadow-md rounded border-purple-900 mb-4"
-          ></div>
+          ></div> -->
         </div>
       </therapists-card>
+    </div>
+    <div class="mt-10">
+      <blog-page />
     </div>
   </div>
 </template>
@@ -119,10 +158,12 @@
 <script>
 import ServicesCard from '@/components/ServicesCard'
 import TherapistsCard from '~/components/TherapistsCard.vue'
+import BlogPage from '~/components/BlogPage.vue'
 export default {
   components: {
     ServicesCard,
     TherapistsCard,
+    BlogPage,
   },
   methods: {
     next() {

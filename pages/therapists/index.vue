@@ -25,17 +25,50 @@
   <div
     v-else
     dir="rtl"
-    class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 font-vazir"
+    class="
+      px-4
+      py-16
+      mx-auto
+      sm:max-w-xl
+      md:max-w-full
+      lg:max-w-screen-xl
+      md:px-24
+      lg:px-8 lg:py-20
+      font-vazir
+    "
   >
     <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
       <h2
-        class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
+        class="
+          max-w-lg
+          mb-6
+          font-sans
+          text-3xl
+          font-bold
+          leading-none
+          tracking-tight
+          text-gray-900
+          sm:text-4xl
+          md:mx-auto
+        "
       >
         <span class="relative inline-block">
           <svg
             viewBox="0 0 52 24"
             fill="currentColor"
-            class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 ml-20 text-purple-600 lg:w-32 lg:ml-28 lg:-mt-10 sm:block"
+            class="
+              absolute
+              top-0
+              left-0
+              z-0
+              hidden
+              w-32
+              -mt-8
+              ml-20
+              text-purple-600
+              lg:w-32 lg:ml-28 lg:-mt-10
+              sm:block
+            "
           >
             <defs>
               <pattern
@@ -65,7 +98,17 @@
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div v-for="therapist in therapists" :key="therapist.id">
         <div
-          class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl"
+          class="
+            relative
+            overflow-hidden
+            transition
+            duration-300
+            transform
+            rounded
+            shadow-lg
+            lg:hover:-translate-y-2
+            hover:shadow-2xl
+          "
         >
           <img
             class="object-cover w-full h-56 md:h-64 xl:h-80"
@@ -73,7 +116,20 @@
             :alt="therapist.name"
           />
           <div
-            class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100"
+            class="
+              absolute
+              inset-0
+              flex flex-col
+              justify-center
+              px-5
+              py-4
+              text-center
+              transition-opacity
+              duration-300
+              bg-black bg-opacity-75
+              opacity-0
+              hover:opacity-100
+            "
           >
             <p class="mb-1 text-lg font-bold text-gray-100">
               {{ therapist.name }}
@@ -85,7 +141,17 @@
             <div class="flex items-center justify-center">
               <nuxt-link
                 :to="'/therapists/' + therapist.username"
-                class="text-gray-800 transition-colors duration-300 hover:text-purple-800 bg-gray-400 hover:bg-purple-200 px-4 py-1 rounded-md"
+                class="
+                  text-gray-800
+                  transition-colors
+                  duration-300
+                  hover:text-purple-800
+                  bg-gray-400
+                  hover:bg-purple-200
+                  px-4
+                  py-1
+                  rounded-md
+                "
               >
                 مشاهده
               </nuxt-link>
@@ -107,9 +173,12 @@ export default {
     }
   },
   async fetch() {
-    const data = await fetch(
-      `${this.$axios.defaults.baseURL}/getTherapists`
-    ).then((res) => res.json())
+    this.$store.commit('enableLoading')
+    const data = await fetch(`${this.$axios.defaults.baseURL}/getTherapists`)
+      .then((res) => res.json())
+      .finally(() => {
+        this.$store.commit('disableLoading')
+      })
     if (data && data.length > 0) this.therapists = data
     else this.noData = true
   },

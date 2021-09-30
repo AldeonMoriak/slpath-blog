@@ -1,5 +1,6 @@
 <template>
-  <div class="shadow-md z-50" dir="rtl">
+  <div class="shadow-md z-40" dir="rtl">
+    <loading v-if="$store.state.isLoading" />
     <div class="antialiased bg-gray-100 dark-mode:bg-gray-900 font-vazir">
       <div
         class="
@@ -36,10 +37,19 @@
                 dark-mode:text-white
                 focus:outline-none focus:shadow-outline
                 hover:bg-purple-200
-                p-2
+                pb-1
+                px-1
                 mt-1
+                flex
+                items-center
               "
-              >تانی آنلاین
+            >
+              <!-- <nuxt-img
+                width="40"
+                class="text-purple-400"
+                src="/images/TANI.svg"
+              /> -->
+              <img src="/images/TANI.svg" class="text-purple-800 w-10" />
 
               <h1
                 class="
@@ -88,7 +98,7 @@
           <nav
             :class="[
               openNav ? 'flex' : 'hidden',
-              'flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row md:content-center md:items-center transition duration-500 ease-in-out fixed top-0 mt-18 bg-white inset-x-0 md:static md:mt-0 z-50 shadow-md md:shadow-none',
+              'flex-col flex-grow pb-4 md:pb-0 md:flex md:justify-end md:flex-row md:content-center md:items-center transition duration-500 ease-in-out fixed top-0 mt-18 bg-white inset-x-0 md:static md:mt-0 z-40 shadow-md md:shadow-none',
             ]"
           >
             <nuxt-link
@@ -254,7 +264,9 @@
 
 <script>
 import { mixin as clickaway } from 'vue-clickaway'
+import Loading from './Loading.vue'
 export default {
+  components: { Loading },
   mixins: [clickaway],
   data() {
     return {

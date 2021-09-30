@@ -26,7 +26,15 @@
     <article class="grid md:grid-cols-3 md:gap-16">
       <div class="hidden md:block">
         <aside
-          class="sticky top-28 space-y-1 font-bold tracking-wide my-14 text-center"
+          class="
+            sticky
+            top-28
+            space-y-1
+            font-bold
+            tracking-wide
+            my-14
+            text-center
+          "
         >
           <div class="text-gray-700 font-normal bg-purple-200 rounded-full">
             جدیدترین مقالات وبسایت
@@ -85,9 +93,14 @@ export default {
   },
   methods: {
     async fetchData() {
+      this.$store.commit('enableLoading')
       const posts = await fetch(
         `${this.$axios.defaults.baseURL}/articles/getAll?page=${this.page}&limit=${this.limit}`
-      ).then((res) => res.json())
+      )
+        .then((res) => res.json())
+        .finally(() => {
+          this.$store.commit('disableLoading')
+        })
       if (posts.data && posts.data.length > 0) {
         this.page++
         this.posts.push(...posts.data)

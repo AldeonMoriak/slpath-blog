@@ -368,9 +368,14 @@ export default {
     }
   },
   async fetch() {
+    this.$store.commit('enableLoading')
     const data = await fetch(
       `${this.$axios.defaults.baseURL}/categories/getCategory/${this.$route.params.service}`
-    ).then((res) => res.json())
+    )
+      .then((res) => res.json())
+      .finally(() => {
+        this.$store.commit('disableLoading')
+      })
     this.interest = data
     this.lastIndex =
       data.therapists && data.therapists.length !== 0

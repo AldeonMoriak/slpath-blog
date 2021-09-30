@@ -14,11 +14,31 @@
         </p>
         <aside
           v-else
-          class="sticky top-24 space-y-1 font-bold tracking-wide my-14 text-center"
+          class="
+            sticky
+            top-24
+            space-y-1
+            font-bold
+            tracking-wide
+            my-14
+            text-center
+          "
         >
           <span class="text-gray-500 font-thin block"> مقالاتی که تگ </span>
           <div
-            class="text-purple-800 bg-purple-200 px-2 ml-1 rounded-full text-sm hover:bg-purple-300 h-8 text-center py-2 inline-block"
+            class="
+              text-purple-800
+              bg-purple-200
+              px-2
+              ml-1
+              rounded-full
+              text-sm
+              hover:bg-purple-300
+              h-8
+              text-center
+              py-2
+              inline-block
+            "
           >
             {{ $route.params.tag }}
           </div>
@@ -68,11 +88,16 @@ export default {
     }
   },
   async fetch() {
+    this.$store.commit('enableLoading')
     const data = await fetch(
       `${this.$axios.defaults.baseURL}/articles/tag/${encodeURIComponent(
         this.$route.params.tag
       )}?page=${this.page}&limit=${this.limit}`
-    ).then((res) => res.json())
+    )
+      .then((res) => res.json())
+      .finally(() => {
+        this.$store.commit('disableLoading')
+      })
     this.posts = data
   },
   methods: {},
