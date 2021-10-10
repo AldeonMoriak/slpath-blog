@@ -61,7 +61,7 @@
         "
       >
         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <img src="/images/TANI_SPINNER.svg" class="h-60" />
+          <img src="/images/chikara_spinner.svg" class="h-60" />
         </div>
       </div>
     </div>

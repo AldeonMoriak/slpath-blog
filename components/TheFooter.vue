@@ -15,7 +15,7 @@
         "
       >
         <img
-          src="/images/TANI_WHITE.svg"
+          src="/images/chikaraWhite.svg"
           class="w-12 h-12 text-white p-1 bg-purple-500 rounded-full"
         />
         <span class="mr-3 text-xl">تانی آنلاین</span>

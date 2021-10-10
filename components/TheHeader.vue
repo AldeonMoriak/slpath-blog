@@ -37,8 +37,8 @@
                 dark-mode:text-white
                 focus:outline-none focus:shadow-outline
                 hover:bg-purple-200
-                pb-1
                 px-1
+                py-3
                 mt-1
                 flex
                 items-center
@@ -49,7 +49,10 @@
                 class="text-purple-400"
                 src="/images/TANI.svg"
               /> -->
-              <img src="/images/TANI.svg" class="text-purple-800 w-10" />
+              <img
+                src="/images/chikaraWhite.svg"
+                class="bg-purple-500 rounded-full p-1 ml-1 w-9"
+              />
 
               <h1
                 class="
