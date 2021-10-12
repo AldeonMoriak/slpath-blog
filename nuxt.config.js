@@ -58,7 +58,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      name: '<p class="font-vazir"><span class="font-bold">تانی</span> جامعه برخط توانبخشی ایران</p>',
+      name: 'تانی جامعه برخط توانبخشی ایران',
       lang: 'fa',
       useWebmanifestExtension: false,
     },
